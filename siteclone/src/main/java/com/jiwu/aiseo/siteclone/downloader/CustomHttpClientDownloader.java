@@ -47,7 +47,7 @@ public class CustomHttpClientDownloader extends HttpClientDownloader {
         // 创建信任所有证书的SSL上下文
         SSLContext sslContext;
         try {
-            sslContext = SSLContext.getInstance("TLS");
+            sslContext = SSLContext.getInstance("TLSv1.3");
             sslContext.init(null, new TrustManager[]{new X509TrustManager() {
                 @Override
                 public X509Certificate[] getAcceptedIssuers() {
@@ -70,7 +70,7 @@ public class CustomHttpClientDownloader extends HttpClientDownloader {
         // 创建SSL连接工厂，允许所有主机名
         SSLConnectionSocketFactory sslConnectionFactory = new SSLConnectionSocketFactory(
                 sslContext,
-                new String[]{"TLSv1", "TLSv1.1", "TLSv1.2", "SSLv3"},
+                new String[]{"TLSv1.3", "TLSv1.2", "TLSv1.1", "TLSv1"},
                 null,
                 NoopHostnameVerifier.INSTANCE);
 
