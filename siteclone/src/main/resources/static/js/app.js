@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 加载文件列表
     async function loadFilesList(directory) {
         try {
-            const response = await fetch(`/api/files/list?directory=${encodeURIComponent(directory)}`);
+            const response = await fetch(`/api/files/list-details?directory=${encodeURIComponent(directory)}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -119,12 +119,28 @@ document.addEventListener('DOMContentLoaded', function() {
             const filesListElement = document.getElementById('filesList');
             filesListElement.innerHTML = '';
 
+            // 按修改时间降序排序
+            files.sort((a, b) => b.lastModified - a.lastModified);
+
             files.forEach(file => {
-                const fileItem = document.createElement('a');
-                fileItem.href = `/api/files/view?filePath=${encodeURIComponent(file)}`;
-                fileItem.className = 'list-group-item list-group-item-action';
-                fileItem.target = '_blank';
-                fileItem.textContent = file.split('/').pop();
+                const fileItem = document.createElement('div');
+                fileItem.className = 'list-group-item';
+
+                const fileLink = document.createElement('a');
+                fileLink.href = `/api/files/view?filePath=${encodeURIComponent(file.path)}`;
+                fileLink.className = 'text-decoration-none';
+                fileLink.target = '_blank';
+                fileLink.textContent = file.name;
+
+                const fileDetails = document.createElement('div');
+                fileDetails.className = 'small text-muted mt-1';
+                
+                const size = formatFileSize(file.size);
+                const modified = formatDateTime(new Date(file.lastModified));
+                fileDetails.textContent = `${size} - 修改时间: ${modified}`;
+
+                fileItem.appendChild(fileLink);
+                fileItem.appendChild(fileDetails);
                 filesListElement.appendChild(fileItem);
             });
 
@@ -133,6 +149,15 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (error) {
             console.error('加载文件列表失败:', error);
         }
+    }
+
+    // 格式化文件大小
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     }
 
     // 获取状态显示文本

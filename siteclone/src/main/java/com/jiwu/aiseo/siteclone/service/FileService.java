@@ -1,18 +1,22 @@
 package com.jiwu.aiseo.siteclone.service;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.stereotype.Service;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
@@ -32,6 +36,30 @@ public class FileService {
         } catch (IOException e) {
             log.error("Failed to list files in directory: {}", outputDir, e);
             throw new RuntimeException("Failed to list files", e);
+        }
+    }
+
+    /**
+     * 获取文件元数据信息
+     *
+     * @param filePath 文件路径
+     * @return 包含文件名、大小、修改时间的Map
+     */
+    public Map<String, Object> getFileMetadata(String filePath) {
+        try {
+            Path path = Paths.get(filePath);
+            BasicFileAttributes attrs = Files.readAttributes(path, BasicFileAttributes.class);
+            
+            Map<String, Object> metadata = new HashMap<>();
+            metadata.put("name", path.getFileName().toString());
+            metadata.put("size", attrs.size());
+            metadata.put("lastModified", attrs.lastModifiedTime().toMillis());
+            metadata.put("path", filePath);
+            
+            return metadata;
+        } catch (IOException e) {
+            log.error("Failed to get file metadata: {}", filePath, e);
+            throw new RuntimeException("Failed to get file metadata", e);
         }
     }
 

@@ -1,14 +1,21 @@
 package com.jiwu.aiseo.siteclone.controller;
 
-import com.jiwu.aiseo.siteclone.service.FileService;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.jiwu.aiseo.siteclone.service.FileService;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/files")
@@ -60,5 +67,21 @@ public class FileController {
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(contentType))
                 .body(resource);
+    }
+
+    /**
+     * 获取文件列表的详细信息
+     *
+     * @param directory 目录路径
+     * @return 文件元数据列表
+     */
+    @GetMapping("/list-details")
+    public ResponseEntity<List<Map<String, Object>>> listFileDetails(@RequestParam String directory) {
+        List<String> filePaths = fileService.listFiles(directory);
+        List<Map<String, Object>> fileDetails = filePaths.stream()
+                .map(fileService::getFileMetadata)
+                .collect(Collectors.toList());
+        
+        return ResponseEntity.ok(fileDetails);
     }
 }

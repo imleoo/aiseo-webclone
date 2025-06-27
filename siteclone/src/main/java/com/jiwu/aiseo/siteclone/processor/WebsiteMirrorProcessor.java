@@ -128,6 +128,11 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 return "index.html";
             }
 
+            // 处理路径，优先检查.html后缀
+            if (path.endsWith(".html") || path.endsWith(".htm")) {
+                return path.replaceAll("[^a-zA-Z0-9./]", "_");
+            }
+
             // 处理没有扩展名的路径
             if (!path.contains(".")) {
                 return path.replaceAll("[^a-zA-Z0-9/]", "_") + "/index.html";
