@@ -4,9 +4,6 @@ server:
 spring:
   application:
     name: siteclone
-  mvc:
-    favicon:
-      enabled: false
 
 logging:
   level:
