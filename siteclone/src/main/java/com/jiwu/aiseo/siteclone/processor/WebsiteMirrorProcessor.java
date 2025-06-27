@@ -70,8 +70,8 @@ public class WebsiteMirrorProcessor implements PageProcessor {
     @Override
     public void process(Page page) {
         logger.info("Processing page: {}", page.getUrl());
-        // 提取页面中的所有链接
-        page.addTargetRequests(page.getHtml().links().regex("(https?://" + domain + "/[\\w\\-/]+)").all());
+        // 提取页面中的所有链接，保留.html等后缀
+        page.addTargetRequests(page.getHtml().links().regex("(https?://" + domain + "/[\\w\\-/\\.]+)").all());
 
         // 解析当前页面
         String htmlContent = page.getHtml().toString();
@@ -128,17 +128,28 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 return "index.html";
             }
 
-            // 处理路径，优先检查.html后缀
-            if (path.endsWith(".html") || path.endsWith(".htm")) {
-                return path.replaceAll("[^a-zA-Z0-9./]", "_");
+            // 移除查询参数和哈希
+            path = path.split("[?#]")[0];
+            
+            // 处理路径，优先保留原始扩展名
+            if (path.endsWith(".html") || path.endsWith(".htm") || 
+                path.endsWith(".php") || path.endsWith(".jsp") ||
+                path.endsWith(".asp") || path.endsWith(".aspx")) {
+                return path.replaceAll("[^a-zA-Z0-9./-]", "_");
             }
 
             // 处理没有扩展名的路径
             if (!path.contains(".")) {
-                return path.replaceAll("[^a-zA-Z0-9/]", "_") + "/index.html";
+                // 仅对以斜杠结尾的路径添加index.html
+                if (path.endsWith("/")) {
+                    return path + "index.html";
+                }
+                // 否则保留原始路径
+                return path;
             }
 
-            return path.replaceAll("[^a-zA-Z0-9./]", "_");
+            // 其他情况保留原始文件名
+            return path.replaceAll("[^a-zA-Z0-9./-]", "_");
         } catch (Exception e) {
             logger.error("Failed to parse URL: {}", url, e);
             return "page_" + url.hashCode() + ".html";

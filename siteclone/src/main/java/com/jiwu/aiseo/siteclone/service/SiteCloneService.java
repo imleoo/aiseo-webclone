@@ -1,21 +1,25 @@
 package com.jiwu.aiseo.siteclone.service;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.nio.file.Paths;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
+
 import com.jiwu.aiseo.siteclone.downloader.CustomHttpClientDownloader;
 import com.jiwu.aiseo.siteclone.dto.CloneRequest;
 import com.jiwu.aiseo.siteclone.dto.CloneResponse;
 import com.jiwu.aiseo.siteclone.model.CloneTask;
 import com.jiwu.aiseo.siteclone.processor.WebsiteMirrorProcessor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Service;
-import us.codecraft.webmagic.Spider;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.file.Paths;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import lombok.extern.slf4j.Slf4j;
+import us.codecraft.webmagic.Spider;
 
 @Service
 @Slf4j
@@ -26,11 +30,13 @@ public class SiteCloneService {
     public CloneResponse startClone(CloneRequest request) {
         try {
             // 解析URL获取域名
-            URL url = new URL(request.getUrl());
+            URL url = URI.create(request.getUrl()).toURL();
             String domain = url.getHost();
 
-            // 创建输出目录
-            String outputDir = Paths.get(System.getProperty("java.io.tmpdir"), "siteclone", domain).toString();
+            // 创建输出目录 - 使用项目目录下的downloads文件夹
+            String outputDir = Paths.get("downloads", "siteclone", domain).toString();
+            // 确保目录存在
+            new File(outputDir).mkdirs();
 
             // 创建任务
             CloneTask task = new CloneTask(request.getUrl(), outputDir);
@@ -41,7 +47,7 @@ public class SiteCloneService {
 
             // 返回响应
             return convertToResponse(task);
-        } catch (MalformedURLException e) {
+        } catch (IllegalArgumentException | MalformedURLException e) {
             log.error("Invalid URL: {}", request.getUrl(), e);
             CloneTask task = new CloneTask(request.getUrl(), null);
             task.setFailed("Invalid URL: " + e.getMessage());
