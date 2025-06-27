@@ -70,8 +70,14 @@ public class CustomHttpClientDownloader extends HttpClientDownloader {
         // 创建SSL连接工厂，允许所有主机名
         SSLConnectionSocketFactory sslConnectionFactory = new SSLConnectionSocketFactory(
                 sslContext,
-                new String[]{"TLSv1.3", "TLSv1.2", "TLSv1.1", "TLSv1"},
-                null,
+                new String[]{"TLSv1.3", "TLSv1.2"},  // 仅支持TLS 1.2和1.3
+                new String[]{
+                    "TLS_AES_256_GCM_SHA384",
+                    "TLS_AES_128_GCM_SHA256",
+                    "TLS_CHACHA20_POLY1305_SHA256",
+                    "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
+                    "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+                },  // 指定安全的密码套件
                 NoopHostnameVerifier.INSTANCE);
 
         // 注册HTTP和HTTPS协议
