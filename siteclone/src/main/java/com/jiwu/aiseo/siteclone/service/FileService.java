@@ -29,9 +29,10 @@ public class FileService {
      * @return 文件路径列表
      */
     public List<String> listFiles(String outputDir) {
-        try (Stream<Path> walk = Files.walk(Paths.get(outputDir))) {
+        Path basePath = Paths.get(outputDir).normalize();
+        try (Stream<Path> walk = Files.walk(basePath)) {
             return walk.filter(Files::isRegularFile)
-                    .map(Path::toString)
+                    .map(path -> basePath.relativize(path).toString())
                     .collect(Collectors.toList());
         } catch (IOException e) {
             log.error("Failed to list files in directory: {}", outputDir, e);

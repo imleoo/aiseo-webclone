@@ -8,6 +8,9 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -17,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jiwu.aiseo.siteclone.downloader.CustomHttpClientDownloader;
+import com.jiwu.aiseo.siteclone.model.CloneTask;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Request;
@@ -30,8 +34,10 @@ public class WebsiteMirrorProcessor implements PageProcessor {
     private final Site site;
     private final String outputDir;
     private final String domain;
+    private final CloneTask cloneTask;
+    private final ConcurrentHashMap<String, Boolean> urlCache = new ConcurrentHashMap<>();
 
-    public WebsiteMirrorProcessor(String domain, int retryTimes, int sleepTime, String outputDir) {
+    public WebsiteMirrorProcessor(String domain, int retryTimes, int sleepTime, String outputDir, CloneTask cloneTask) {
         this.site = Site.me()
                 .setDomain(domain)
                 .setRetryTimes(retryTimes)
@@ -51,6 +57,7 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 .setCharset("UTF-8");
         this.outputDir = outputDir;
         this.domain = domain;
+        this.cloneTask = cloneTask;
 
         // 创建必要的目录
         createDirectories();
@@ -71,7 +78,17 @@ public class WebsiteMirrorProcessor implements PageProcessor {
     public void process(Page page) {
         logger.info("Processing page: {}", page.getUrl());
         // 提取页面中的所有链接，保留.html等后缀
-        page.addTargetRequests(page.getHtml().links().regex("(https?://" + domain + "/[\\w\\-/\\.]+)").all());
+        List<String> links = page.getHtml().links().regex("(https?://" + domain + "/[\\w\\-/\\.]+)").all();
+        List<String> newLinks = new ArrayList<>();
+        for (String link : links) {
+            if (urlCache.putIfAbsent(link, true) == null) {
+                newLinks.add(link);
+                logger.debug("Adding new URL to queue: {}", link);
+            } else {
+                logger.debug("URL already in cache, skipping: {}", link);
+            }
+        }
+        page.addTargetRequests(newLinks);
 
         // 解析当前页面
         String htmlContent = page.getHtml().toString();
@@ -87,6 +104,11 @@ public class WebsiteMirrorProcessor implements PageProcessor {
             Files.createDirectories(htmlFilePath.getParent());
             Files.write(htmlFilePath, doc.outerHtml().getBytes());
             logger.info("Saved HTML file: {}", htmlFilePath);
+            
+            // 增加页面爬取计数
+            synchronized(cloneTask) {
+                cloneTask.incrementPagesCrawled();
+            }
         } catch (IOException e) {
             logger.error("Failed to save HTML file for URL: {}", url, e);
         }
@@ -194,6 +216,11 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                     try (FileOutputStream fileOutputStream = new FileOutputStream(outputPath.toFile())) {
                         fileOutputStream.write(page.getRawText().getBytes());
                         logger.info("Successfully downloaded file: {}", outputPath);
+                        
+                        // 增加文件下载计数
+                        synchronized(cloneTask) {
+                            cloneTask.incrementFilesDownloaded();
+                        }
                     } catch (FileNotFoundException e) {
                         logger.error("Output directory not found: {}", e.getMessage());
                     } catch (SecurityException | IOException e) {

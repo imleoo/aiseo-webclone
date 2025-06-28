@@ -71,7 +71,7 @@ public class SiteCloneService {
         task.setRunning();
 
         try {
-            WebsiteMirrorProcessor processor = new WebsiteMirrorProcessor(domain, retryTimes, sleepTime, task.getOutputDir());
+            WebsiteMirrorProcessor processor = new WebsiteMirrorProcessor(domain, retryTimes, sleepTime, task.getOutputDir(), task);
 
             Spider.create(processor)
                     .setDownloader(new CustomHttpClientDownloader())
