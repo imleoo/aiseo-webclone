@@ -32,7 +32,7 @@ public class FileService {
         Path basePath = Paths.get(outputDir).normalize();
         try (Stream<Path> walk = Files.walk(basePath)) {
             return walk.filter(Files::isRegularFile)
-                    .map(path -> basePath.relativize(path).toString())
+                    .map(Path::toString)
                     .collect(Collectors.toList());
         } catch (IOException e) {
             log.error("Failed to list files in directory: {}", outputDir, e);

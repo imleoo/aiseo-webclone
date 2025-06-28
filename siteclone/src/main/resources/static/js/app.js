@@ -41,12 +41,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 刷新按钮处理
+    // 刷新按钮处理 - 增强功能
     document.getElementById('refreshBtn').addEventListener('click', function() {
         if (currentTaskId) {
             fetchTaskStatus();
+            const outputDir = document.getElementById('outputDir').textContent;
+            if (outputDir) {
+                loadFilesList(outputDir).catch(e => {
+                    console.error('刷新文件列表失败:', e);
+                    showAlert('刷新文件列表失败: ' + e.message, 'danger');
+                });
+            }
         }
     });
+
+    // 显示通知的函数
+    function showAlert(message, type = 'danger') {
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `alert alert-${type} alert-dismissible fade show mt-2`;
+        alertDiv.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        const container = document.getElementById('taskDetails');
+        const existingAlert = container.querySelector('.alert');
+        if (existingAlert) existingAlert.remove();
+        container.appendChild(alertDiv);
+    }
 
     // 轮询任务状态
     function startPolling() {
@@ -56,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         pollingInterval = setInterval(fetchTaskStatus, 2000);
     }
 
-    // 获取任务状态
+    // 获取任务状态 - 增强错误处理
     async function fetchTaskStatus() {
         if (!currentTaskId) return;
 
@@ -72,14 +93,18 @@ document.addEventListener('DOMContentLoaded', function() {
             // 如果任务完成或失败，停止轮询
             if (data.status === 'COMPLETED' || data.status === 'FAILED') {
                 clearInterval(pollingInterval);
-                if (data.status === 'COMPLETED') {
-                    loadFilesList(data.outputDir);
+                if (data.status === 'COMPLETED' && data.outputDir) {
+                    loadFilesList(data.outputDir).catch(e => {
+                        console.error('加载文件列表失败:', e);
+                        showAlert('加载文件列表失败: ' + e.message, 'warning');
+                    });
                 }
             }
 
         } catch (error) {
             console.error('获取任务状态失败:', error);
             clearInterval(pollingInterval);
+            showAlert('获取任务状态失败: ' + error.message, 'danger');
         }
     }
 

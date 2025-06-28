@@ -90,6 +90,7 @@ public class SiteCloneService {
     private CloneResponse convertToResponse(CloneTask task) {
         CloneResponse response = new CloneResponse();
         BeanUtils.copyProperties(task, response);
+        response.setTaskId(task.getId()); // 显式设置taskId
         return response;
     }
 }

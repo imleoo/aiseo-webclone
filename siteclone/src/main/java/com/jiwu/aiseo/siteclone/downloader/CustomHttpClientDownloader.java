@@ -9,7 +9,6 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.client.CookieStore;
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
@@ -97,12 +96,9 @@ public class CustomHttpClientDownloader extends HttpClientDownloader {
 
             // 设置Cookie
             if (site.isUseGzip()) {
-                httpClientBuilder.addInterceptorFirst(new HttpRequestInterceptor() {
-                    @Override
-                    public void process(org.apache.http.HttpRequest request, org.apache.http.protocol.HttpContext context) {
-                        if (!request.containsHeader("Accept-Encoding")) {
-                            request.addHeader("Accept-Encoding", "gzip");
-                        }
+                httpClientBuilder.addInterceptorFirst((org.apache.http.HttpRequest request, org.apache.http.protocol.HttpContext context) -> {
+                    if (!request.containsHeader("Accept-Encoding")) {
+                        request.addHeader("Accept-Encoding", "gzip");
                     }
                 });
             }

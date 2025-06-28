@@ -3,6 +3,7 @@ package com.jiwu.aiseo.siteclone.processor;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.nio.file.Files;
@@ -173,7 +174,7 @@ public class WebsiteMirrorProcessor implements PageProcessor {
 
             // 其他情况保留原始文件名
             return path.replaceAll("[^a-zA-Z0-9./-]", "_");
-        } catch (Exception e) {
+        } catch (MalformedURLException e) {
             logger.error("Failed to parse URL: {}", url, e);
             return "page_" + url.hashCode() + ".html";
         }
@@ -233,12 +234,12 @@ public class WebsiteMirrorProcessor implements PageProcessor {
             } catch (Exception e) {
                 logger.error("Error downloading file {}: {}", fileUrl, e.getMessage());
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             logger.error("Error downloading file: {} - {}", fileUrl, e.getMessage());
             // 如果下载失败，删除可能部分下载的文件
             try {
                 Files.deleteIfExists(Paths.get(outputDir, URI.create(fileUrl).toURL().getPath()));
-            } catch (Exception ex) {
+            } catch (IOException ex) {
                 logger.error("Error cleaning up failed download: {}", ex.getMessage());
             }
         }
