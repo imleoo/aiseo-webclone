@@ -2,10 +2,11 @@ package com.jiwu.aiseo.siteclone.processor;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.MalformedURLException;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -124,20 +125,104 @@ public class WebsiteMirrorProcessor implements PageProcessor {
             }
         }
 
-        // 下载 CSS 和 JS 文件
-        Elements cssFiles = doc.select("link[rel=stylesheet]");
-        for (Element css : cssFiles) {
-            String cssUrl = css.absUrl("href");
-            if (!cssUrl.isEmpty()) {
-                downloadFile(cssUrl, outputDir + "/css/");
+        // 规范化base URL，确保不包含文件名
+        String baseUrl = page.getUrl().toString();
+        if (baseUrl.contains("?")) {
+            baseUrl = baseUrl.substring(0, baseUrl.indexOf("?"));
+        }
+        if (baseUrl.contains("#")) {
+            baseUrl = baseUrl.substring(0, baseUrl.indexOf("#"));
+        }
+        // 去除文件名部分，只保留目录路径
+        if (!baseUrl.endsWith("/")) {
+            int lastSlash = baseUrl.lastIndexOf('/');
+            if (lastSlash > 8) { // 确保不是协议部分(https://)
+                baseUrl = baseUrl.substring(0, lastSlash + 1);
+            } else {
+                baseUrl += "/";
             }
         }
+        doc.setBaseUri(baseUrl);
 
-        Elements jsFiles = doc.select("script[src]");
-        for (Element js : jsFiles) {
-            String jsUrl = js.absUrl("src");
-            if (!jsUrl.isEmpty()) {
-                downloadFile(jsUrl, outputDir + "/js/");
+        // 定义需要处理的资源类型
+        String[] resourceSelectors = {
+            "link[href]",
+            "script[src]",
+            "img[src]",
+            "source[src]",
+            "source[srcset]",
+            "video[src]",
+            "audio[src]",
+            "iframe[src]",
+            "embed[src]",
+            "object[data]"
+        };
+
+        // 处理所有资源
+        for (String selector : resourceSelectors) {
+            Elements elements = doc.select(selector);
+            for (Element element : elements) {
+                String attrName = element.hasAttr("href") ? "href" : 
+                                element.hasAttr("src") ? "src" : "data";
+                String originalUrl = element.attr(attrName);
+
+                // 跳过空URL、data URI和锚点
+                if (originalUrl.isEmpty() || 
+                    originalUrl.startsWith("data:") || 
+                    originalUrl.startsWith("#") ||
+                    originalUrl.startsWith("javascript:")) {
+                    continue;
+                }
+
+                // 规范化URL
+                String absUrl;
+                try {
+                    // 先尝试jsoup的absUrl方法
+                    absUrl = element.absUrl(attrName);
+                    
+                    // 如果失败，手动构建绝对URL
+                    if (absUrl.isEmpty()) {
+                        if (originalUrl.startsWith("/")) {
+                            // 处理根相对路径
+                            URI uri = new URI(baseUrl).resolve(originalUrl);
+                            absUrl = uri.toURL().toString();
+                        } else if (originalUrl.startsWith("../") || originalUrl.startsWith("./")) {
+                            // 处理相对路径
+                            URI uri = new URI(baseUrl).resolve(originalUrl);
+                            absUrl = uri.toURL().toString();
+                        } else {
+                            // 处理同级相对路径
+                            absUrl = baseUrl + originalUrl;
+                        }
+                    }
+                    
+                    // 确保URL格式正确
+                    absUrl = absUrl.replaceAll("(?<!:)/+", "/") // 去除多余斜杠
+                                  .replaceAll("/\\./", "/")     // 处理./路径
+                                  .replaceAll("/[^/]+/\\.\\./", "/"); // 处理../路径
+
+                    // 获取相对路径并下载文件
+                    String relativePath = getRelativePath(absUrl);
+                    String savePath = outputDir + "/" + relativePath;
+                    
+                    logger.debug("Processing resource: element={}, attr={}, original={}, absUrl={}, relative={}, savePath={}",
+                        element.tagName(), attrName, originalUrl, absUrl, relativePath, savePath);
+                    
+                    downloadFile(absUrl, savePath);
+                    
+                } catch (MalformedURLException e) {
+                    logger.error("Invalid URL format for resource: {}={}, error: {}", 
+                        attrName, originalUrl, e.getMessage());
+                } catch (URISyntaxException e) {
+                    logger.error("Invalid URI syntax for resource: {}={}, error: {}", 
+                        attrName, originalUrl, e.getMessage());
+                } catch (IOException e) {
+                    logger.error("IO error processing resource: {}={}, error: {}", 
+                        attrName, originalUrl, e.getMessage());
+                } catch (Exception e) {
+                    logger.error("Unexpected error processing resource: {}={}, error: {}", 
+                        attrName, originalUrl, e.getMessage());
+                }
             }
         }
     }
@@ -180,24 +265,42 @@ public class WebsiteMirrorProcessor implements PageProcessor {
         }
     }
 
+    // 提取URL的域名
+    private String extractDomain(String url) {
+        try {
+            URI uri = new URI(url);
+            String domain = uri.getHost();
+            return domain == null ? "" : domain.startsWith("www.") ? domain.substring(4) : domain;
+        } catch (URISyntaxException e) {
+            logger.error("Invalid URL format: {}", url, e);
+            return "";
+        }
+    }
+
     // 下载文件到指定目录
-    private void downloadFile(String fileUrl, String outputDir) {
+    private void downloadFile(String fileUrl, String savePath) {
         if (fileUrl == null || fileUrl.trim().isEmpty()) {
             return;
         }
 
-        try {
-            URL url = URI.create(fileUrl).toURL();
-            String fileName = sanitizeFileName(url.getPath());
-            Path outputPath = Paths.get(outputDir, fileName);
+        // 检查域名是否匹配
+        String fileDomain = extractDomain(fileUrl);
+        if (fileDomain.isEmpty() || !fileDomain.equals(this.domain)) {
+            logger.debug("Skipping non-mirror domain file: {}", fileUrl);
+            return;
+        }
 
+        try {
+            // 规范化保存路径
+            Path outputPath = Paths.get(savePath).normalize();
+            
             // 如果文件已存在，跳过下载
             if (Files.exists(outputPath)) {
                 logger.debug("File already exists, skipping: {}", outputPath);
                 return;
             }
 
-            // 创建父目录
+            // 创建所有必要的父目录
             Files.createDirectories(outputPath.getParent());
 
             // 使用CustomHttpClientDownloader下载文件
@@ -215,18 +318,22 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 });
 
                 if (page.getStatusCode() == 200) {
-                                            try (FileOutputStream fileOutputStream = new FileOutputStream(outputPath.toFile())) {
-                                                fileOutputStream.write(page.getRawText().getBytes());
-                                                logger.info("Successfully downloaded file: {}", outputPath);
-                            
-                                                // 增加文件下载计数
-                                                synchronized(cloneTask) {
-                                                    cloneTask.incrementFilesDownloaded();
-                                                }
-                                            } catch (FileNotFoundException e) {
-                        logger.error("Output directory not found: {}", e.getMessage());
-                    } catch (SecurityException | IOException e) {
-                        logger.error("Failed to write file: {}", e.getMessage());
+                    try (FileOutputStream fileOutputStream = new FileOutputStream(outputPath.toFile())) {
+                        fileOutputStream.write(page.getRawText().getBytes());
+                        logger.info("Successfully downloaded file: {}", outputPath);
+                        
+                        // 增加文件下载计数
+                        synchronized(cloneTask) {
+                            cloneTask.incrementFilesDownloaded();
+                        }
+                    } catch (FileNotFoundException e) {
+                        logger.error("Output directory not found for {}: {}", fileUrl, e.getMessage());
+                    } catch (SecurityException e) {
+                        logger.error("Security exception writing file {}: {}", fileUrl, e.getMessage());
+                    } catch (IOException e) {
+                        logger.error("IO error writing file {}: {}", fileUrl, e.getMessage());
+                        // 删除可能损坏的文件
+                        Files.deleteIfExists(outputPath);
                     }
                 } else {
                     logger.warn("Failed to download file: {} with status code: {}", fileUrl, page.getStatusCode());
@@ -234,14 +341,80 @@ public class WebsiteMirrorProcessor implements PageProcessor {
             } catch (Exception e) {
                 logger.error("Error downloading file {}: {}", fileUrl, e.getMessage());
             }
+        } catch (MalformedURLException e) {
+            logger.error("Invalid URL format: {} - {}", fileUrl, e.getMessage());
         } catch (IOException e) {
-            logger.error("Error downloading file: {} - {}", fileUrl, e.getMessage());
-            // 如果下载失败，删除可能部分下载的文件
-            try {
-                Files.deleteIfExists(Paths.get(outputDir, URI.create(fileUrl).toURL().getPath()));
-            } catch (IOException ex) {
-                logger.error("Error cleaning up failed download: {}", ex.getMessage());
+            logger.error("IO error preparing to download {}: {}", fileUrl, e.getMessage());
+        } catch (Exception e) {
+            logger.error("Unexpected error downloading {}: {}", fileUrl, e.getMessage());
+        }
+    }
+
+    /**
+     * 获取URL的相对路径部分
+     * @param url 完整的URL
+     * @return 相对路径字符串
+     */
+    private String getAbsoluteUrl(String baseUrl, String resourceUrl) {
+        try {
+            // 处理绝对路径
+            if (resourceUrl.startsWith("/")) {
+                URI baseUri = new URI(baseUrl);
+                return baseUri.getScheme() + "://" + baseUri.getHost() + resourceUrl;
             }
+            
+            // 处理相对路径
+            URI baseUri = new URI(baseUrl);
+            URI resolvedUri = baseUri.resolve(resourceUrl);
+            return resolvedUri.toString();
+        } catch (URISyntaxException e) {
+            logger.error("Invalid URL syntax: base={}, resource={}", baseUrl, resourceUrl, e);
+            return resourceUrl;
+        }
+    }
+
+    private String getRelativePath(String url) {
+        try {
+            URI uri = new URI(url);
+            String path = uri.getPath();
+            
+            // 处理根路径
+            if (path == null || path.isEmpty() || path.equals("/")) {
+                return "index.html";
+            }
+            
+            // 规范化路径
+            path = path.replaceAll("/+", "/")
+                     .replaceAll("/\\./", "/")
+                     .replaceAll("/[^/]+/\\.\\./", "/");
+            
+            // 处理目录路径（自动添加index.html）
+            if (path.endsWith("/")) {
+                path += "index.html";
+            }
+            
+            // 确保路径不为空
+            if (path.isEmpty()) {
+                return "index.html";
+            }
+            
+            // 处理查询参数和片段
+            String query = uri.getQuery();
+            String fragment = uri.getFragment();
+            String result = path;
+            
+            if (query != null && !query.isEmpty()) {
+                result += "_" + query.replaceAll("[^a-zA-Z0-9]", "_");
+            }
+            if (fragment != null && !fragment.isEmpty()) {
+                result += "_" + fragment.replaceAll("[^a-zA-Z0-9]", "_");
+            }
+            
+            return result;
+        } catch (URISyntaxException e) {
+            logger.error("Invalid URL syntax: {}", url, e);
+            return url.replaceFirst("^https?://[^/]+/", "")
+                    .replaceAll("[^a-zA-Z0-9./-]", "_");
         }
     }
 
