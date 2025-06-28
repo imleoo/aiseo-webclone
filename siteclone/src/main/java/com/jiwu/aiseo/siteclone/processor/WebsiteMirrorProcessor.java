@@ -105,9 +105,10 @@ public class WebsiteMirrorProcessor implements PageProcessor {
             Files.write(htmlFilePath, doc.outerHtml().getBytes());
             logger.info("Saved HTML file: {}", htmlFilePath);
             
-            // 增加页面爬取计数
+            // 增加页面爬取和文件下载计数
             synchronized(cloneTask) {
                 cloneTask.incrementPagesCrawled();
+                cloneTask.incrementFilesDownloaded(); // HTML文件也算作下载的文件
             }
         } catch (IOException e) {
             logger.error("Failed to save HTML file for URL: {}", url, e);
@@ -213,15 +214,15 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 });
 
                 if (page.getStatusCode() == 200) {
-                    try (FileOutputStream fileOutputStream = new FileOutputStream(outputPath.toFile())) {
-                        fileOutputStream.write(page.getRawText().getBytes());
-                        logger.info("Successfully downloaded file: {}", outputPath);
-                        
-                        // 增加文件下载计数
-                        synchronized(cloneTask) {
-                            cloneTask.incrementFilesDownloaded();
-                        }
-                    } catch (FileNotFoundException e) {
+                                            try (FileOutputStream fileOutputStream = new FileOutputStream(outputPath.toFile())) {
+                                                fileOutputStream.write(page.getRawText().getBytes());
+                                                logger.info("Successfully downloaded file: {}", outputPath);
+                            
+                                                // 增加文件下载计数
+                                                synchronized(cloneTask) {
+                                                    cloneTask.incrementFilesDownloaded();
+                                                }
+                                            } catch (FileNotFoundException e) {
                         logger.error("Output directory not found: {}", e.getMessage());
                     } catch (SecurityException | IOException e) {
                         logger.error("Failed to write file: {}", e.getMessage());
