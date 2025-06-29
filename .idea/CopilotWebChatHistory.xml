@@ -221,6 +221,87 @@
                   <option name="role" value="assistant" />
                   <option name="topic" value="" />
                 </UIChatMessage>
+                <UIChatMessage>
+                  <option name="command" value="" />
+                  <option name="content" value="&#10;```&#10;&#10;```" />
+                  <option name="cost" value="0" />
+                  <option name="createdAt" value="1751206933888" />
+                  <option name="localReferences">
+                    <list />
+                  </option>
+                  <option name="parser">
+                    <SimpleMarkdownStreamParser>
+                      <option name="columns">
+                        <list>
+                          <option value="3" />
+                          <option value="-1" />
+                        </list>
+                      </option>
+                      <option name="content" value="&#10;```&#10;&#10;```" />
+                      <option name="nodes">
+                        <list>
+                          <MarkdownNode>
+                            <option name="children">
+                              <list />
+                            </option>
+                            <option name="content" value="" />
+                            <option name="contentId" value="0" />
+                            <option name="settled" value="true" />
+                            <option name="type" value="line" />
+                            <option name="xmlData">
+                              <XmlNode />
+                            </option>
+                          </MarkdownNode>
+                          <MarkdownNode>
+                            <option name="children">
+                              <list />
+                            </option>
+                            <option name="content" value="&#10;" />
+                            <option name="contentId" value="10" />
+                            <option name="expectEnding" value="```" />
+                            <option name="indentSize" value="0" />
+                            <option name="language" value="" />
+                            <option name="settled" value="false" />
+                            <option name="type" value="code-block" />
+                            <option name="xmlData">
+                              <XmlNode />
+                            </option>
+                          </MarkdownNode>
+                        </list>
+                      </option>
+                      <option name="parserState">
+                        <ParserState>
+                          <option name="line" value="2" />
+                          <option name="column" value="2" />
+                          <option name="offset" value="9" />
+                          <option name="closing" value="true" />
+                          <option name="innerBlock" value="1" />
+                          <option name="moveCursor" value="true" />
+                        </ParserState>
+                      </option>
+                    </SimpleMarkdownStreamParser>
+                  </option>
+                  <option name="range">
+                    <CodeActionChatRequestRange>
+                      <option name="start">
+                        <CodeActionChatRequestRangePosition />
+                      </option>
+                      <option name="end">
+                        <CodeActionChatRequestRangePosition>
+                          <option name="character" value="10000" />
+                        </CodeActionChatRequestRangePosition>
+                      </option>
+                    </CodeActionChatRequestRange>
+                  </option>
+                  <option name="role" value="user" />
+                  <option name="selectedRanges">
+                    <list />
+                  </option>
+                  <option name="uri" value="" />
+                  <option name="variables">
+                    <list />
+                  </option>
+                </UIChatMessage>
               </list>
             </option>
             <option name="messagesV3">
@@ -236,7 +317,36 @@
             <option name="createTime" value="1751174698065" />
             <option name="id" value="0197ba2557097ee590f21d67efd662b9" />
             <option name="title" value="&#10;```&#10;&#10;```" />
-            <option name="updateTime" value="1751174698065" />
+            <option name="turns">
+              <list>
+                <Turn>
+                  <option name="agent" value="" />
+                  <option name="answer" value="看起来您没有输入具体的代码或问题。  &#10;&#10;请提供：  &#10;8. **代码片段**（如果有）  &#10;7. **具体问题**（如报错、逻辑错误、优化需求等）  &#10;6. **期望的输出或行为**  &#10;&#10;我会根据您提供的信息给出简短、清晰的解答，并尽量添加中文注释帮助理解。  &#10;&#10;示例格式：  &#10;```kbgslm&#10;# 这是您的代码&#10;wvu vcznkov():&#10;    kirmg(&quot;Svool&quot;)&#10;```  &#10;问题：这段代码如何修改才能输出两次&quot;Svool&quot;？  &#10;&#10;期待您的补充！" />
+                  <option name="chatResource" value="user" />
+                  <option name="codeReferences">
+                    <list />
+                  </option>
+                  <option name="command" value="" />
+                  <option name="conversationId" value="0197ba2557097ee590f21d67efd662b9" />
+                  <option name="historyDocumentMap">
+                    <map>
+                      <entry key="file://$PROJECT_DIR$/siteclone/src/main/java/com/jiwu/aiseo/siteclone/downloader/CustomHttpClientDownloader.java" value="package com.jiwu.aiseo.siteclone.downloader;&#10;&#10;import java.security.KeyManagementException;&#10;import java.security.NoSuchAlgorithmException;&#10;import java.security.cert.X509Certificate;&#10;import java.util.Map;&#10;&#10;import javax.net.ssl.SSLContext;&#10;import javax.net.ssl.TrustManager;&#10;import javax.net.ssl.X509TrustManager;&#10;&#10;import org.apache.http.client.CookieStore;&#10;import org.apache.http.config.Registry;&#10;import org.apache.http.config.RegistryBuilder;&#10;import org.apache.http.conn.socket.ConnectionSocketFactory;&#10;import org.apache.http.conn.socket.PlainConnectionSocketFactory;&#10;import org.apache.http.conn.ssl.NoopHostnameVerifier;&#10;import org.apache.http.conn.ssl.SSLConnectionSocketFactory;&#10;import org.apache.http.impl.client.BasicCookieStore;&#10;import org.apache.http.impl.client.CloseableHttpClient;&#10;import org.apache.http.impl.client.HttpClientBuilder;&#10;import org.apache.http.impl.client.HttpClients;&#10;import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;&#10;import org.apache.http.impl.cookie.BasicClientCookie;&#10;&#10;import lombok.extern.slf4j.Slf4j;&#10;import us.codecraft.webmagic.Site;&#10;import us.codecraft.webmagic.downloader.HttpClientDownloader;&#10;&#10;/**&#10; * 自定义HttpClient下载器，处理SSL问题&#10; */&#10;@Slf4j&#10;public class CustomHttpClientDownloader extends HttpClientDownloader {&#10;&#10;    public CloseableHttpClient getHttpClient(Site site) {&#10;        if (site == null) {&#10;            return createHttpClient(null);&#10;        }&#10;        return createHttpClient(site);&#10;    }&#10;&#10;    private CloseableHttpClient createHttpClient(Site site) {&#10;        HttpClientBuilder httpClientBuilder = HttpClients.custom();&#10;&#10;        // 创建信任所有证书的SSL上下文&#10;        SSLContext sslContext;&#10;        try {&#10;            sslContext = SSLContext.getInstance(&quot;TLSv1.3&quot;);&#10;            sslContext.init(null, new TrustManager[]{new X509TrustManager() {&#10;                @Override&#10;                public X509Certificate[] getAcceptedIssuers() {&#10;                    return null;&#10;                }&#10;&#10;                @Override&#10;                public void checkClientTrusted(X509Certificate[] certs, String authType) {&#10;                }&#10;&#10;                @Override&#10;                public void checkServerTrusted(X509Certificate[] certs, String authType) {&#10;                }&#10;            }}, null);&#10;        } catch (NoSuchAlgorithmException | KeyManagementException e) {&#10;            log.error(&quot;创建SSL上下文失败&quot;, e);&#10;            throw new RuntimeException(&quot;无法创建SSL上下文&quot;, e);&#10;        }&#10;&#10;        // 创建SSL连接工厂，允许所有主机名&#10;        SSLConnectionSocketFactory sslConnectionFactory = new SSLConnectionSocketFactory(&#10;                sslContext,&#10;                new String[]{&quot;TLSv1.3&quot;, &quot;TLSv1.2&quot;},  // 仅支持TLS 1.2和1.3&#10;                new String[]{&#10;                    &quot;TLS_AES_256_GCM_SHA384&quot;,&#10;                    &quot;TLS_AES_128_GCM_SHA256&quot;,&#10;                    &quot;TLS_CHACHA20_POLY1305_SHA256&quot;,&#10;                    &quot;TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384&quot;,&#10;                    &quot;TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384&quot;&#10;                },  // 指定安全的密码套件&#10;                NoopHostnameVerifier.INSTANCE);&#10;&#10;        // 注册HTTP和HTTPS协议&#10;        Registry&lt;ConnectionSocketFactory&gt; registry = RegistryBuilder.&lt;ConnectionSocketFactory&gt;create()&#10;                .register(&quot;http&quot;, PlainConnectionSocketFactory.getSocketFactory())&#10;                .register(&quot;https&quot;, sslConnectionFactory)&#10;                .build();&#10;&#10;        // 创建连接管理器&#10;        PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager(registry);&#10;        connectionManager.setMaxTotal(100);&#10;        httpClientBuilder.setConnectionManager(connectionManager);&#10;&#10;        if (site != null) {&#10;            // 设置用户代理&#10;            httpClientBuilder.setUserAgent(site.getUserAgent());&#10;&#10;            // 设置Cookie&#10;            if (site.isUseGzip()) {&#10;                httpClientBuilder.addInterceptorFirst((org.apache.http.HttpRequest request, org.apache.http.protocol.HttpContext context) -&gt; {&#10;                    if (!request.containsHeader(&quot;Accept-Encoding&quot;)) {&#10;                        request.addHeader(&quot;Accept-Encoding&quot;, &quot;gzip&quot;);&#10;                    }&#10;                });&#10;            }&#10;&#10;            // 设置Cookie存储&#10;            CookieStore cookieStore = new BasicCookieStore();&#10;            for (Map.Entry&lt;String, String&gt; cookieEntry : site.getCookies().entrySet()) {&#10;                BasicClientCookie cookie = new BasicClientCookie(cookieEntry.getKey(), cookieEntry.getValue());&#10;                cookie.setDomain(site.getDomain());&#10;                cookieStore.addCookie(cookie);&#10;            }&#10;            httpClientBuilder.setDefaultCookieStore(cookieStore);&#10;        }&#10;&#10;        return httpClientBuilder.build();&#10;    }&#10;}" />
+                    </map>
+                  </option>
+                  <option name="messageId" value="0197bc1135807ee590f230ba4a3717ef" />
+                  <option name="question" value="&#10;```&#10;&#10;```" />
+                  <option name="rating" value="UNRATED" />
+                  <option name="referenceBeans">
+                    <list />
+                  </option>
+                  <option name="status" value="SUCCESS" />
+                  <option name="variables">
+                    <list />
+                  </option>
+                </Turn>
+              </list>
+            </option>
+            <option name="updateTime" value="1751206937390" />
           </Conversation>
         </option>
       </WebConversation>

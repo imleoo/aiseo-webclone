@@ -2,11 +2,11 @@ package com.jiwu.aiseo.siteclone.processor;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.net.MalformedURLException;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -45,8 +45,10 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 .setRetryTimes(retryTimes)
                 .setSleepTime(sleepTime)
                 .setTimeOut(10000)
-                .setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-                .addHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7")
+                .setUserAgent(
+                        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+                .addHeader("Accept",
+                        "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7")
                 .addHeader("Accept-Language", "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7")
                 .addHeader("Accept-Encoding", "gzip, deflate, br")
                 .addHeader("Cache-Control", "max-age=0")
@@ -106,9 +108,9 @@ public class WebsiteMirrorProcessor implements PageProcessor {
             Files.createDirectories(htmlFilePath.getParent());
             Files.write(htmlFilePath, doc.outerHtml().getBytes());
             logger.info("Saved HTML file: {}", htmlFilePath);
-            
+
             // 增加页面爬取和文件下载计数
-            synchronized(cloneTask) {
+            synchronized (cloneTask) {
                 cloneTask.incrementPagesCrawled();
                 cloneTask.incrementFilesDownloaded(); // HTML文件也算作下载的文件
             }
@@ -146,31 +148,30 @@ public class WebsiteMirrorProcessor implements PageProcessor {
 
         // 定义需要处理的资源类型
         String[] resourceSelectors = {
-            "link[href]",
-            "script[src]",
-            "img[src]",
-            "source[src]",
-            "source[srcset]",
-            "video[src]",
-            "audio[src]",
-            "iframe[src]",
-            "embed[src]",
-            "object[data]"
+                "link[href]",
+                "script[src]",
+                "img[src]",
+                "source[src]",
+                "source[srcset]",
+                "video[src]",
+                "audio[src]",
+                "iframe[src]",
+                "embed[src]",
+                "object[data]"
         };
 
         // 处理所有资源
         for (String selector : resourceSelectors) {
             Elements elements = doc.select(selector);
             for (Element element : elements) {
-                String attrName = element.hasAttr("href") ? "href" : 
-                                element.hasAttr("src") ? "src" : "data";
+                String attrName = element.hasAttr("href") ? "href" : element.hasAttr("src") ? "src" : "data";
                 String originalUrl = element.attr(attrName);
 
                 // 跳过空URL、data URI和锚点
-                if (originalUrl.isEmpty() || 
-                    originalUrl.startsWith("data:") || 
-                    originalUrl.startsWith("#") ||
-                    originalUrl.startsWith("javascript:")) {
+                if (originalUrl.isEmpty() ||
+                        originalUrl.startsWith("data:") ||
+                        originalUrl.startsWith("#") ||
+                        originalUrl.startsWith("javascript:")) {
                     continue;
                 }
 
@@ -179,7 +180,7 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 try {
                     // 先尝试jsoup的absUrl方法
                     absUrl = element.absUrl(attrName);
-                    
+
                     // 如果失败，手动构建绝对URL
                     if (absUrl.isEmpty()) {
                         if (originalUrl.startsWith("/")) {
@@ -195,33 +196,31 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                             absUrl = baseUrl + originalUrl;
                         }
                     }
-                    
+
                     // 确保URL格式正确
                     absUrl = absUrl.replaceAll("(?<!:)/+", "/") // 去除多余斜杠
-                                  .replaceAll("/\\./", "/")     // 处理./路径
-                                  .replaceAll("/[^/]+/\\.\\./", "/"); // 处理../路径
+                            .replaceAll("/\\./", "/") // 处理./路径
+                            .replaceAll("/[^/]+/\\.\\./", "/"); // 处理../路径
 
                     // 获取相对路径并下载文件
                     String relativePath = getRelativePath(absUrl);
                     String savePath = outputDir + "/" + relativePath;
-                    
-                    logger.debug("Processing resource: element={}, attr={}, original={}, absUrl={}, relative={}, savePath={}",
-                        element.tagName(), attrName, originalUrl, absUrl, relativePath, savePath);
-                    
+
+                    logger.debug(
+                            "Processing resource: element={}, attr={}, original={}, absUrl={}, relative={}, savePath={}",
+                            element.tagName(), attrName, originalUrl, absUrl, relativePath, savePath);
+
                     downloadFile(absUrl, savePath);
-                    
+
                 } catch (MalformedURLException e) {
-                    logger.error("Invalid URL format for resource: {}={}, error: {}", 
-                        attrName, originalUrl, e.getMessage());
+                    logger.error("Invalid URL format for resource: {}={}, error: {}",
+                            attrName, originalUrl, e.getMessage());
                 } catch (URISyntaxException e) {
-                    logger.error("Invalid URI syntax for resource: {}={}, error: {}", 
-                        attrName, originalUrl, e.getMessage());
-                } catch (IOException e) {
-                    logger.error("IO error processing resource: {}={}, error: {}", 
-                        attrName, originalUrl, e.getMessage());
+                    logger.error("Invalid URI syntax for resource: {}={}, error: {}",
+                            attrName, originalUrl, e.getMessage());
                 } catch (Exception e) {
-                    logger.error("Unexpected error processing resource: {}={}, error: {}", 
-                        attrName, originalUrl, e.getMessage());
+                    logger.error("Unexpected error processing resource: {}={}, error: {}",
+                            attrName, originalUrl, e.getMessage());
                 }
             }
         }
@@ -239,11 +238,11 @@ public class WebsiteMirrorProcessor implements PageProcessor {
 
             // 移除查询参数和哈希
             path = path.split("[?#]")[0];
-            
+
             // 处理路径，优先保留原始扩展名
-            if (path.endsWith(".html") || path.endsWith(".htm") || 
-                path.endsWith(".php") || path.endsWith(".jsp") ||
-                path.endsWith(".asp") || path.endsWith(".aspx")) {
+            if (path.endsWith(".html") || path.endsWith(".htm") ||
+                    path.endsWith(".php") || path.endsWith(".jsp") ||
+                    path.endsWith(".asp") || path.endsWith(".aspx")) {
                 return path.replaceAll("[^a-zA-Z0-9./-]", "_");
             }
 
@@ -269,8 +268,7 @@ public class WebsiteMirrorProcessor implements PageProcessor {
     private String extractDomain(String url) {
         try {
             URI uri = new URI(url);
-            String domain = uri.getHost();
-            return domain == null ? "" : domain.startsWith("www.") ? domain.substring(4) : domain;
+            return uri.getHost() == null ? "" : uri.getHost().startsWith("www.") ? uri.getHost().substring(4) : uri.getHost();
         } catch (URISyntaxException e) {
             logger.error("Invalid URL format: {}", url, e);
             return "";
@@ -293,7 +291,7 @@ public class WebsiteMirrorProcessor implements PageProcessor {
         try {
             // 规范化保存路径
             Path outputPath = Paths.get(savePath).normalize();
-            
+
             // 如果文件已存在，跳过下载
             if (Files.exists(outputPath)) {
                 logger.debug("File already exists, skipping: {}", outputPath);
@@ -311,6 +309,7 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                     public String getUUID() {
                         return fileUrl;
                     }
+
                     @Override
                     public Site getSite() {
                         return site;
@@ -321,9 +320,9 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                     try (FileOutputStream fileOutputStream = new FileOutputStream(outputPath.toFile())) {
                         fileOutputStream.write(page.getRawText().getBytes());
                         logger.info("Successfully downloaded file: {}", outputPath);
-                        
+
                         // 增加文件下载计数
-                        synchronized(cloneTask) {
+                        synchronized (cloneTask) {
                             cloneTask.incrementFilesDownloaded();
                         }
                     } catch (FileNotFoundException e) {
@@ -338,7 +337,7 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 } else {
                     logger.warn("Failed to download file: {} with status code: {}", fileUrl, page.getStatusCode());
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 logger.error("Error downloading file {}: {}", fileUrl, e.getMessage());
             }
         } catch (MalformedURLException e) {
@@ -352,7 +351,8 @@ public class WebsiteMirrorProcessor implements PageProcessor {
 
     /**
      * 获取URL的相对路径部分
-     * @param baseUrl 完整的URL
+     * 
+     * @param baseUrl     完整的URL
      * @param resourceUrl 完整的URL
      * @return 相对路径字符串
      */
@@ -363,7 +363,7 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 URI baseUri = new URI(baseUrl);
                 return baseUri.getScheme() + "://" + baseUri.getHost() + resourceUrl;
             }
-            
+
             // 处理相对路径
             URI baseUri = new URI(baseUrl);
             URI resolvedUri = baseUri.resolve(resourceUrl);
@@ -378,39 +378,39 @@ public class WebsiteMirrorProcessor implements PageProcessor {
         try {
             URI uri = new URI(url);
             String path = uri.getPath();
-            
+
             // 处理根路径
             if (path == null || path.isEmpty() || path.equals("/")) {
                 return "index.html";
             }
-            
+
             // 规范化路径
             path = path.replaceAll("/+", "/")
-                     .replaceAll("/\\./", "/")
-                     .replaceAll("/[^/]+/\\.\\./", "/");
-            
+                    .replaceAll("/\\./", "/")
+                    .replaceAll("/[^/]+/\\.\\./", "/");
+
             // 处理目录路径（自动添加index.html）
             if (path.endsWith("/")) {
                 path += "index.html";
             }
-            
+
             // 确保路径不为空
             if (path.isEmpty()) {
                 return "index.html";
             }
-            
+
             // 处理查询参数和片段
             String query = uri.getQuery();
             String fragment = uri.getFragment();
             String result = path;
-            
+
             if (query != null && !query.isEmpty()) {
                 result += "_" + query.replaceAll("[^a-zA-Z0-9]", "_");
             }
             if (fragment != null && !fragment.isEmpty()) {
                 result += "_" + fragment.replaceAll("[^a-zA-Z0-9]", "_");
             }
-            
+
             return result;
         } catch (URISyntaxException e) {
             logger.error("Invalid URL syntax: {}", url, e);
