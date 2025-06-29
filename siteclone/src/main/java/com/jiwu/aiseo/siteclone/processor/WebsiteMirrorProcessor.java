@@ -352,7 +352,8 @@ public class WebsiteMirrorProcessor implements PageProcessor {
 
     /**
      * 获取URL的相对路径部分
-     * @param url 完整的URL
+     * @param baseUrl 完整的URL
+     * @param resourceUrl 完整的URL
      * @return 相对路径字符串
      */
     private String getAbsoluteUrl(String baseUrl, String resourceUrl) {
