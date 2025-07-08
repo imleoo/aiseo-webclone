@@ -11,7 +11,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.jsoup.Jsoup;
@@ -82,7 +84,12 @@ public class WebsiteMirrorProcessor implements PageProcessor {
     public void process(Page page) {
         logger.info("Processing page: {}", page.getUrl());
         // 提取页面中的所有链接，保留.html等后缀
-        List<String> links = page.getHtml().links().regex("(https?://" + domain + "/[\\w\\-/\\.]+)").all();
+        // 使用LinkedHashSet保持顺序同时去重
+        Set<String> uniqueLinks = new LinkedHashSet<>(
+            page.getHtml().links().regex("(https?://" + domain + "/[\\w\\-/\\.]+)").all()
+        );
+        List<String> links = new ArrayList<>(uniqueLinks);
+        logger.debug("Found {} unique links after deduplication", links.size());
         List<String> newLinks = new ArrayList<>();
         for (String link : links) {
             if (urlCache.putIfAbsent(link, true) == null) {
@@ -175,32 +182,32 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                     continue;
                 }
 
+                // 修复绝对路径丢失前导斜杠的问题
+                if (originalUrl.startsWith("/") && !originalUrl.startsWith("//")) {
+                    originalUrl = "/" + originalUrl.replaceFirst("^/+", "");
+                }
+
                 // 规范化URL
                 String absUrl;
                 try {
-                    // 先尝试jsoup的absUrl方法
-                    absUrl = element.absUrl(attrName);
-
-                    // 如果失败，手动构建绝对URL
-                    if (absUrl.isEmpty()) {
-                        if (originalUrl.startsWith("/")) {
-                            // 处理根相对路径
-                            URI uri = new URI(baseUrl).resolve(originalUrl);
-                            absUrl = uri.toURL().toString();
-                        } else if (originalUrl.startsWith("../") || originalUrl.startsWith("./")) {
-                            // 处理相对路径
-                            URI uri = new URI(baseUrl).resolve(originalUrl);
-                            absUrl = uri.toURL().toString();
-                        } else {
-                            // 处理同级相对路径
-                            absUrl = baseUrl + originalUrl;
+                    // 更可靠的URL获取方式
+                    String absUrlAttempt;
+                    if (originalUrl.startsWith("/")) {
+                        // 对于绝对路径，使用更可靠的处理方式
+                        absUrlAttempt = element.attr("abs:" + attrName);
+                        if (absUrlAttempt.isEmpty() || !absUrlAttempt.contains(originalUrl)) {
+                            // 如果jsoup处理不理想，回退到手动处理
+                            absUrlAttempt = getAbsoluteUrl(baseUrl, originalUrl);
+                        }
+                    } else {
+                        // 对于相对路径，使用标准absUrl方法
+                        absUrlAttempt = element.absUrl(attrName);
+                        if (absUrlAttempt.isEmpty()) {
+                            absUrlAttempt = getAbsoluteUrl(baseUrl, originalUrl);
                         }
                     }
-
-                    // 确保URL格式正确
-                    absUrl = absUrl.replaceAll("(?<!:)/+", "/") // 去除多余斜杠
-                            .replaceAll("/\\./", "/") // 处理./路径
-                            .replaceAll("/[^/]+/\\.\\./", "/"); // 处理../路径
+                    absUrl = absUrlAttempt;
+                    logger.debug("Processed URL: original={}, absUrl={}", originalUrl, absUrl);
 
                     // 获取相对路径并下载文件
                     String relativePath = getRelativePath(absUrl);
@@ -212,12 +219,6 @@ public class WebsiteMirrorProcessor implements PageProcessor {
 
                     downloadFile(absUrl, savePath);
 
-                } catch (MalformedURLException e) {
-                    logger.error("Invalid URL format for resource: {}={}, error: {}",
-                            attrName, originalUrl, e.getMessage());
-                } catch (URISyntaxException e) {
-                    logger.error("Invalid URI syntax for resource: {}={}, error: {}",
-                            attrName, originalUrl, e.getMessage());
                 } catch (Exception e) {
                     logger.error("Unexpected error processing resource: {}={}, error: {}",
                             attrName, originalUrl, e.getMessage());
@@ -350,26 +351,45 @@ public class WebsiteMirrorProcessor implements PageProcessor {
     }
 
     /**
-     * 获取URL的相对路径部分
+     * 获取绝对URL
      * 
-     * @param baseUrl     完整的URL
-     * @param resourceUrl 完整的URL
-     * @return 相对路径字符串
+     * @param baseUrl     基础URL
+     * @param resourceUrl 资源URL（可以是相对或绝对路径）
+     * @return 完整的绝对URL
      */
     private String getAbsoluteUrl(String baseUrl, String resourceUrl) {
         try {
-            // 处理绝对路径
+            // 处理特殊情况：空URL、data URI、锚点、javascript等
+            if (resourceUrl.isEmpty() || 
+                resourceUrl.startsWith("data:") || 
+                resourceUrl.startsWith("#") ||
+                resourceUrl.startsWith("javascript:")) {
+                return resourceUrl;
+            }
+            
+            // 处理以/开头的绝对路径
             if (resourceUrl.startsWith("/")) {
                 URI baseUri = new URI(baseUrl);
-                return baseUri.getScheme() + "://" + baseUri.getHost() + resourceUrl;
+                String normalizedBase = baseUri.getScheme() + "://" + baseUri.getHost();
+                if (baseUri.getPort() != -1 && baseUri.getPort() != 80 && baseUri.getPort() != 443) {
+                    normalizedBase += ":" + baseUri.getPort();
+                }
+                return normalizedBase + resourceUrl;
             }
-
+            
             // 处理相对路径
             URI baseUri = new URI(baseUrl);
             URI resolvedUri = baseUri.resolve(resourceUrl);
-            return resolvedUri.toString();
-        } catch (URISyntaxException e) {
-            logger.error("Invalid URL syntax: base={}, resource={}", baseUrl, resourceUrl, e);
+            
+            // 规范化路径：去除冗余的./和../
+            String normalizedUrl = resolvedUri.toString()
+                .replaceAll("(?<!:)/+", "/")  // 去除多余斜杠
+                .replaceAll("/\\./", "/")     // 去除/./
+                .replaceAll("/[^/]+/\\.\\./", "/"); // 去除/../
+
+            return normalizedUrl;
+        } catch (Exception e) {
+            logger.error("URL resolution failed: base={}, resource={}", baseUrl, resourceUrl, e);
             return resourceUrl;
         }
     }
@@ -417,38 +437,6 @@ public class WebsiteMirrorProcessor implements PageProcessor {
             return url.replaceFirst("^https?://[^/]+/", "")
                     .replaceAll("[^a-zA-Z0-9./-]", "_");
         }
-    }
-
-    private String sanitizeFileName(String path) {
-        // 移除查询参数
-        int queryIndex = path.indexOf('?');
-        if (queryIndex != -1) {
-            path = path.substring(0, queryIndex);
-        }
-
-        // 获取文件名
-        String fileName = Paths.get(path).getFileName().toString();
-
-        // 如果文件名为空，生成随机文件名
-        if (fileName.isEmpty()) {
-            fileName = "file_" + System.currentTimeMillis();
-        }
-
-        // 替换不安全的字符
-        fileName = fileName.replaceAll("[^a-zA-Z0-9.-]", "_");
-
-        // 确保文件名不超过255个字符
-        if (fileName.length() > 255) {
-            String extension = "";
-            int dotIndex = fileName.lastIndexOf('.');
-            if (dotIndex != -1) {
-                extension = fileName.substring(dotIndex);
-                fileName = fileName.substring(0, dotIndex);
-            }
-            fileName = fileName.substring(0, Math.min(fileName.length(), 255 - extension.length())) + extension;
-        }
-
-        return fileName;
     }
 
     @Override
