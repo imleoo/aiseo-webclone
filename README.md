@@ -10,9 +10,21 @@ A multi-module Spring Boot application for web content processing.
 
 ## Technology Stack
 
-- Spring Boot 3.5.3
-- Jsoup for HTML parsing
-- Apache HttpClient
+### Core Frameworks
+- Spring Boot 3.5.3 (with Spring Web MVC)
+- Java 17
+
+### Web Processing
+- Jsoup 1.15.3 (HTML parsing and manipulation)
+- WebMagic 1.0.3 (web crawler framework)
+
+### Build & Tools
+- Maven (dependency management)
+- Git (version control)
+
+### Other Libraries
+- Apache HttpClient (HTTP communication)
+- Selenium WebDriver (browser automation via WebMagic)
 
 ## Quick Start
 
