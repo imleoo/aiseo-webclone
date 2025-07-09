@@ -1,4 +1,4 @@
-# AISEO WebClone Project
+# AISEO WebClone
 
 A multi-module Spring Boot application for web content processing.
 
@@ -18,7 +18,7 @@ A multi-module Spring Boot application for web content processing.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-repo/aiseo.git
+git clone https://github.com/your-repo/aiseo-webclone.git
 ```
 
 2. Build the project:
