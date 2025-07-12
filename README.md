@@ -1,15 +1,21 @@
 # AISEO WebClone
 
-A multi-module Spring Boot application for web content processing.
-https://webclone.leoobai.cn/
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Build Status](https://github.com/your-repo/aiseo-webclone/actions/workflows/build.yml/badge.svg)](https://github.com/your-repo/aiseo-webclone/actions)
 
-## Features
+A powerful multi-module Spring Boot application for web content processing and cloning.
 
-- Site cloning functionality
-- Resource downloading and processing
-- Multi-module architecture
+🌐 Live Demo: [https://webclone.leoobai.cn/](https://webclone.leoobai.cn/)
 
-## Technology Stack
+## ✨ Features
+
+- **Website Cloning**: Clone entire websites with all resources
+- **Content Processing**: Extract and process web content efficiently 
+- **Modular Architecture**: Well-organized multi-module structure
+- **Customizable**: Easily extendable for specific needs
+- **High Performance**: Optimized for large-scale web processing
+
+## 🛠 Technology Stack
 
 ### Core Frameworks
 - Spring Boot 3.5.3 (with Spring Web MVC)
@@ -27,11 +33,16 @@ https://webclone.leoobai.cn/
 - Apache HttpClient (HTTP communication)
 - Selenium WebDriver (browser automation via WebMagic)
 
-## Quick Start
+## 🚀 Quick Start
+
+### Prerequisites
+- Java 17+
+- Maven 3.6+
 
 1. Clone the repository:
 ```bash
 git clone https://github.com/your-repo/aiseo-webclone.git
+cd aiseo-webclone
 ```
 
 2. Build the project:
@@ -45,11 +56,9 @@ cd siteclone
 mvn spring-boot:run
 ```
 
-## Building and Running
+The application will be available at `http://localhost:8080`
 
-### Prerequisites
-- Java 17+
-- Maven 3.6+
+## 📦 Building and Deployment
 
 ### Build
 ```bash
@@ -61,8 +70,26 @@ mvn clean package
 java -jar siteclone/target/siteclone-*.jar
 ```
 
-## Contributing
+## 🤝 Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+We welcome contributions from the community! Here's how you can help:
 
-Please make sure to update tests as appropriate.
+1. **Report Issues**: Found a bug? Open an issue with detailed steps to reproduce
+2. **Feature Requests**: Suggest new features or improvements
+3. **Pull Requests**: Submit PRs for bug fixes or new features
+
+### Contribution Guidelines
+- Fork the repository
+- Create a feature branch (`git checkout -b feature/your-feature`)
+- Commit your changes (`git commit -am 'Add some feature'`)
+- Push to the branch (`git push origin feature/your-feature`)
+- Open a Pull Request
+
+Please ensure your code:
+- Follows existing style and patterns
+- Includes appropriate tests
+- Has clear documentation
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
