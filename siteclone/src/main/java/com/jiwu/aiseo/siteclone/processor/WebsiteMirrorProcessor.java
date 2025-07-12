@@ -217,7 +217,18 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                             "Processing resource: element={}, attr={}, original={}, absUrl={}, relative={}, savePath={}",
                             element.tagName(), attrName, originalUrl, absUrl, relativePath, savePath);
 
+                    // 下载文件
                     downloadFile(absUrl, savePath);
+                    
+                    // 修改HTML中的链接为本地相对路径
+                    String localPath = relativePath;
+                    if (element.hasAttr("href")) {
+                        element.attr("href", localPath);
+                    } else if (element.hasAttr("src")) {
+                        element.attr("src", localPath);
+                    } else if (element.hasAttr("data")) {
+                        element.attr("data", localPath);
+                    }
 
                 } catch (Exception e) {
                     logger.error("Unexpected error processing resource: {}={}, error: {}",

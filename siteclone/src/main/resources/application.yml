@@ -10,3 +10,8 @@ logging:
     root: INFO
     com.jiwu.aiseo.siteclone: DEBUG
     us.codecraft.webmagic: INFO
+
+siteclone:
+  download:
+    base-dir: ${user.home}/aiseo-downloads # 默认下载基础目录
+    sub-dir: siteclone # 子目录名称

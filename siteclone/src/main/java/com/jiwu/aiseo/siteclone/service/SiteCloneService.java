@@ -25,6 +25,12 @@ import us.codecraft.webmagic.Spider;
 @Slf4j
 public class SiteCloneService {
 
+    @Value("${siteclone.download.base-dir}")
+    private String downloadBaseDir;
+
+    @Value("${siteclone.download.sub-dir}")
+    private String downloadSubDir;
+
     private final Map<String, CloneTask> tasks = new ConcurrentHashMap<>();
 
     public CloneResponse startClone(CloneRequest request) {
@@ -33,10 +39,13 @@ public class SiteCloneService {
             URL url = URI.create(request.getUrl()).toURL();
             String domain = url.getHost();
 
-            // 创建输出目录 - 使用项目目录下的downloads文件夹
-            String outputDir = Paths.get("downloads", "siteclone", domain).toString();
+            // 创建输出目录 - 使用配置的下载路径
+            String outputDir = Paths.get(downloadBaseDir, downloadSubDir, domain).toString();
             // 确保目录存在
-            new File(outputDir).mkdirs();
+            File dir = new File(outputDir);
+            if (!dir.exists() && !dir.mkdirs()) {
+                throw new RuntimeException("Failed to create download directory: " + outputDir);
+            }
 
             // 创建任务
             CloneTask task = new CloneTask(request.getUrl(), outputDir);
