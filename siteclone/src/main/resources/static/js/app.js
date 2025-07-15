@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (pollingInterval) {
             clearInterval(pollingInterval);
         }
+        // 使用配置的轮询间隔（从后端获取，这里先保持原值）
         pollingInterval = setInterval(fetchTaskStatus, 2000);
     }
 

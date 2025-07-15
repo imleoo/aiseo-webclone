@@ -23,8 +23,11 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jiwu.aiseo.siteclone.config.SiteCloneProperties;
 import com.jiwu.aiseo.siteclone.downloader.CustomHttpClientDownloader;
 import com.jiwu.aiseo.siteclone.model.CloneTask;
+import com.jiwu.aiseo.siteclone.utils.SecurityUtils;
+import com.jiwu.aiseo.siteclone.utils.WebsitePathMapper;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Request;
@@ -39,16 +42,17 @@ public class WebsiteMirrorProcessor implements PageProcessor {
     private final String outputDir;
     private final String domain;
     private final CloneTask cloneTask;
+    private final SiteCloneProperties properties; // 添加配置属性
     private final ConcurrentHashMap<String, Boolean> urlCache = new ConcurrentHashMap<>();
+    private final WebsitePathMapper pathMapper; // 添加路径映射器
 
-    public WebsiteMirrorProcessor(String domain, int retryTimes, int sleepTime, String outputDir, CloneTask cloneTask) {
+    public WebsiteMirrorProcessor(String domain, int retryTimes, int sleepTime, String outputDir, CloneTask cloneTask, SiteCloneProperties properties) {
         this.site = Site.me()
                 .setDomain(domain)
                 .setRetryTimes(retryTimes)
                 .setSleepTime(sleepTime)
-                .setTimeOut(10000)
-                .setUserAgent(
-                        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+                .setTimeOut(properties.getCrawler().getTimeout())
+                .setUserAgent(properties.getCrawler().getUserAgent())
                 .addHeader("Accept",
                         "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7")
                 .addHeader("Accept-Language", "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7")
@@ -64,6 +68,8 @@ public class WebsiteMirrorProcessor implements PageProcessor {
         this.outputDir = outputDir;
         this.domain = domain;
         this.cloneTask = cloneTask;
+        this.properties = properties; // 保存配置属性
+        this.pathMapper = new WebsitePathMapper(outputDir, domain); // 初始化路径映射器
 
         // 创建必要的目录
         createDirectories();
@@ -111,7 +117,10 @@ public class WebsiteMirrorProcessor implements PageProcessor {
 
         // 保存 HTML 文件
         try {
-            Path htmlFilePath = Paths.get(outputDir, fileName);
+            // 使用路径映射器获取当前页面的本地路径
+            WebsitePathMapper.PathMappingResult pageMapping = pathMapper.mapUrlToLocalPath(url);
+            Path htmlFilePath = Paths.get(pageMapping.getLocalPath());
+            
             Files.createDirectories(htmlFilePath.getParent());
             Files.write(htmlFilePath, doc.outerHtml().getBytes());
             logger.info("Saved HTML file: {}", htmlFilePath);
@@ -209,26 +218,37 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                     absUrl = absUrlAttempt;
                     logger.debug("Processed URL: original={}, absUrl={}", originalUrl, absUrl);
 
-                    // 获取相对路径并下载文件
-                    String relativePath = getRelativePath(absUrl);
-                    String savePath = outputDir + "/" + relativePath;
+                    // 使用路径映射器处理资源URL
+                    WebsitePathMapper.PathMappingResult resourceMapping = pathMapper.mapUrlToLocalPath(absUrl);
+                    
+                    if (resourceMapping.wasRelocated()) {
+                        logger.info("资源被重新定位到安全位置: {} -> {}", absUrl, resourceMapping.getRelativePath());
+                    }
 
                     logger.debug(
-                            "Processing resource: element={}, attr={}, original={}, absUrl={}, relative={}, savePath={}",
-                            element.tagName(), attrName, originalUrl, absUrl, relativePath, savePath);
+                            "Processing resource: element={}, attr={}, original={}, absUrl={}, localPath={}",
+                            element.tagName(), attrName, originalUrl, absUrl, resourceMapping.getLocalPath());
 
-                    // 下载文件
-                    downloadFile(absUrl, savePath);
+                    // 下载文件到映射的路径
+                    downloadFile(absUrl, resourceMapping.getLocalPath());
+                    
+                    // 获取当前页面的本地路径，计算相对路径
+                    WebsitePathMapper.PathMappingResult currentPageMapping = pathMapper.mapUrlToLocalPath(page.getUrl().toString());
+                    String relativePathFromCurrentPage = pathMapper.calculateRelativePath(
+                        currentPageMapping.getLocalPath(), 
+                        resourceMapping.getLocalPath()
+                    );
                     
                     // 修改HTML中的链接为本地相对路径
-                    String localPath = relativePath;
                     if (element.hasAttr("href")) {
-                        element.attr("href", localPath);
+                        element.attr("href", relativePathFromCurrentPage);
                     } else if (element.hasAttr("src")) {
-                        element.attr("src", localPath);
+                        element.attr("src", relativePathFromCurrentPage);
                     } else if (element.hasAttr("data")) {
-                        element.attr("data", localPath);
+                        element.attr("data", relativePathFromCurrentPage);
                     }
+                    
+                    logger.debug("更新链接: {} -> {}", originalUrl, relativePathFromCurrentPage);
 
                 } catch (Exception e) {
                     logger.error("Unexpected error processing resource: {}={}, error: {}",
@@ -329,13 +349,29 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 });
 
                 if (page.getStatusCode() == 200) {
+                    byte[] content = page.getRawText().getBytes();
+                    long fileSize = content.length;
+                    
+                    // 检查文件大小限制
+                    if (!SecurityUtils.isFileSizeAllowed(fileSize, properties.getDownload().getMaxFileSize())) {
+                        logger.warn("File size {} exceeds limit for: {}", fileSize, fileUrl);
+                        return;
+                    }
+                    
+                    // 检查总下载大小限制
+                    if (!SecurityUtils.isTotalSizeAllowed(cloneTask.getTotalBytesDownloaded(), fileSize, properties.getDownload().getMaxTotalSize())) {
+                        logger.warn("Total download size would exceed limit for task: {}", cloneTask.getId());
+                        return;
+                    }
+                    
                     try (FileOutputStream fileOutputStream = new FileOutputStream(outputPath.toFile())) {
-                        fileOutputStream.write(page.getRawText().getBytes());
-                        logger.info("Successfully downloaded file: {}", outputPath);
+                        fileOutputStream.write(content);
+                        logger.info("Successfully downloaded file: {} (size: {} bytes)", outputPath, fileSize);
 
-                        // 增加文件下载计数
+                        // 增加文件下载计数和字节数
                         synchronized (cloneTask) {
                             cloneTask.incrementFilesDownloaded();
+                            cloneTask.addBytesDownloaded(fileSize);
                         }
                     } catch (FileNotFoundException e) {
                         logger.error("Output directory not found for {}: {}", fileUrl, e.getMessage());
@@ -388,17 +424,18 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 return normalizedBase + resourceUrl;
             }
             
-            // 处理相对路径
+            // 处理相对路径 - 使用安全的URI解析
             URI baseUri = new URI(baseUrl);
             URI resolvedUri = baseUri.resolve(resourceUrl);
             
-            // 规范化路径：去除冗余的./和../
-            String normalizedUrl = resolvedUri.toString()
-                .replaceAll("(?<!:)/+", "/")  // 去除多余斜杠
-                .replaceAll("/\\./", "/")     // 去除/./
-                .replaceAll("/[^/]+/\\.\\./", "/"); // 去除/../
-
-            return normalizedUrl;
+            // 验证解析后的URI是否安全
+            String resolved = resolvedUri.toString();
+            if (!SecurityUtils.isUrlSafe(resolved)) {
+                logger.warn("URL解析后不安全: {}", resolved);
+                return resourceUrl; // 返回原始URL，让后续处理决定是否跳过
+            }
+            
+            return resolved;
         } catch (Exception e) {
             logger.error("URL resolution failed: base={}, resource={}", baseUrl, resourceUrl, e);
             return resourceUrl;
@@ -415,38 +452,60 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                 return "index.html";
             }
 
-            // 规范化路径
-            path = path.replaceAll("/+", "/")
-                    .replaceAll("/\\./", "/")
-                    .replaceAll("/[^/]+/\\.\\./", "/");
-
-            // 处理目录路径（自动添加index.html）
-            if (path.endsWith("/")) {
-                path += "index.html";
+            // 移除开头的斜杠，确保是相对路径
+            if (path.startsWith("/")) {
+                path = path.substring(1);
             }
 
-            // 确保路径不为空
-            if (path.isEmpty()) {
-                return "index.html";
+            // 使用SecurityUtils清理路径（这会移除所有../等危险字符）
+            String cleanPath;
+            try {
+                // 先进行基本清理
+                cleanPath = path.replaceAll("/+", "/");
+                
+                // 移除路径中的所有..和.序列
+                cleanPath = cleanPath.replaceAll("\\.\\./?", "");
+                cleanPath = cleanPath.replaceAll("\\./", "");
+                
+                // 确保路径不为空
+                if (cleanPath.isEmpty() || cleanPath.equals("/")) {
+                    return "index.html";
+                }
+                
+                // 处理目录路径（自动添加index.html）
+                if (cleanPath.endsWith("/")) {
+                    cleanPath += "index.html";
+                }
+                
+            } catch (Exception e) {
+                logger.warn("路径清理失败: {}", path, e);
+                return "safe_file_" + Math.abs(url.hashCode()) + ".html";
             }
 
-            // 处理查询参数和片段
+            // 处理查询参数和片段 - 安全化处理
             String query = uri.getQuery();
             String fragment = uri.getFragment();
-            String result = path;
+            String result = cleanPath;
 
             if (query != null && !query.isEmpty()) {
-                result += "_" + query.replaceAll("[^a-zA-Z0-9]", "_");
+                String safeQuery = query.replaceAll("[^a-zA-Z0-9]", "_");
+                if (safeQuery.length() > 50) { // 限制长度
+                    safeQuery = safeQuery.substring(0, 50);
+                }
+                result += "_q_" + safeQuery;
             }
             if (fragment != null && !fragment.isEmpty()) {
-                result += "_" + fragment.replaceAll("[^a-zA-Z0-9]", "_");
+                String safeFragment = fragment.replaceAll("[^a-zA-Z0-9]", "_");
+                if (safeFragment.length() > 30) { // 限制长度
+                    safeFragment = safeFragment.substring(0, 30);
+                }
+                result += "_f_" + safeFragment;
             }
 
             return result;
         } catch (URISyntaxException e) {
             logger.error("Invalid URL syntax: {}", url, e);
-            return url.replaceFirst("^https?://[^/]+/", "")
-                    .replaceAll("[^a-zA-Z0-9./-]", "_");
+            return "safe_file_" + Math.abs(url.hashCode()) + ".html";
         }
     }
 

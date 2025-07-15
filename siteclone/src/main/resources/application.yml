@@ -15,3 +15,21 @@ siteclone:
   download:
     base-dir: ${user.home}/aiseo-downloads # 默认下载基础目录
     sub-dir: siteclone # 子目录名称
+    max-file-size: 52428800 # 最大文件大小 (50MB)
+    max-total-size: 1073741824 # 最大总下载大小 (1GB)
+  
+  crawler:
+    timeout: 30000 # HTTP请求超时时间 (30秒)
+    polling-interval: 2000 # 前端轮询间隔 (2秒)
+    max-concurrent-downloads: 10 # 最大并发下载数
+    user-agent: "Mozilla/5.0 (compatible; SiteClone/1.0; +https://github.com/aiseo)"
+  
+  security:
+    max-thread-count: 20 # 最大线程数
+    max-retry-times: 10 # 最大重试次数
+    min-sleep-time: 100 # 最小睡眠时间 (毫秒)
+    max-sleep-time: 10000 # 最大睡眠时间 (毫秒)
+  
+  task:
+    cleanup-interval: 3600000 # 任务清理间隔 (1小时)
+    max-task-age: 86400000 # 任务最大保留时间 (24小时)

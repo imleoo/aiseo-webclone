@@ -2,19 +2,17 @@ package com.jiwu.aiseo.siteclone.downloader;
 
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
-import java.security.cert.X509Certificate;
 import java.util.Map;
 
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 
 import org.apache.http.client.CookieStore;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.PlainConnectionSocketFactory;
-import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.conn.ssl.DefaultHostnameVerifier;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -28,10 +26,15 @@ import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.downloader.HttpClientDownloader;
 
 /**
- * 自定义HttpClient下载器，处理SSL问题
+ * 安全的HttpClient下载器，实现合理的SSL配置和安全控制
  */
 @Slf4j
 public class CustomHttpClientDownloader extends HttpClientDownloader {
+
+    private static final int DEFAULT_CONNECT_TIMEOUT = 10000; // 10秒
+    private static final int DEFAULT_SOCKET_TIMEOUT = 30000;  // 30秒
+    private static final int DEFAULT_REQUEST_TIMEOUT = 60000; // 60秒
+    private static final int MAX_CONNECTIONS = 50;
 
     public CloseableHttpClient getHttpClient(Site site) {
         if (site == null) {
@@ -43,30 +46,18 @@ public class CustomHttpClientDownloader extends HttpClientDownloader {
     private CloseableHttpClient createHttpClient(Site site) {
         HttpClientBuilder httpClientBuilder = HttpClients.custom();
 
-        // 创建信任所有证书的SSL上下文
+        // 创建安全的SSL上下文 - 使用系统默认证书验证
         SSLContext sslContext;
         try {
-            sslContext = SSLContext.getInstance("TLSv1.3");
-            sslContext.init(null, new TrustManager[]{new X509TrustManager() {
-                @Override
-                public X509Certificate[] getAcceptedIssuers() {
-                    return null;
-                }
-
-                @Override
-                public void checkClientTrusted(X509Certificate[] certs, String authType) {
-                }
-
-                @Override
-                public void checkServerTrusted(X509Certificate[] certs, String authType) {
-                }
-            }}, null);
+            sslContext = SSLContext.getInstance("TLS");
+            // 使用默认的TrustManager进行证书验证
+            sslContext.init(null, null, null);
         } catch (NoSuchAlgorithmException | KeyManagementException e) {
             log.error("创建SSL上下文失败", e);
             throw new RuntimeException("无法创建SSL上下文", e);
         }
 
-        // 创建SSL连接工厂，允许所有主机名
+        // 创建安全的SSL连接工厂，使用默认主机名验证
         SSLConnectionSocketFactory sslConnectionFactory = new SSLConnectionSocketFactory(
                 sslContext,
                 new String[]{"TLSv1.3", "TLSv1.2"},  // 仅支持TLS 1.2和1.3
@@ -75,9 +66,11 @@ public class CustomHttpClientDownloader extends HttpClientDownloader {
                     "TLS_AES_128_GCM_SHA256",
                     "TLS_CHACHA20_POLY1305_SHA256",
                     "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
-                    "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
-                },  // 指定安全的密码套件
-                NoopHostnameVerifier.INSTANCE);
+                    "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+                    "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
+                    "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+                },  // 安全的密码套件
+                new DefaultHostnameVerifier()); // 使用默认主机名验证
 
         // 注册HTTP和HTTPS协议
         Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory>create()
@@ -87,32 +80,46 @@ public class CustomHttpClientDownloader extends HttpClientDownloader {
 
         // 创建连接管理器
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager(registry);
-        connectionManager.setMaxTotal(100);
+        connectionManager.setMaxTotal(MAX_CONNECTIONS);
+        connectionManager.setDefaultMaxPerRoute(10);
         httpClientBuilder.setConnectionManager(connectionManager);
+
+        // 设置请求超时配置
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(DEFAULT_CONNECT_TIMEOUT)
+                .setSocketTimeout(DEFAULT_SOCKET_TIMEOUT)
+                .setConnectionRequestTimeout(DEFAULT_REQUEST_TIMEOUT)
+                .build();
+        httpClientBuilder.setDefaultRequestConfig(requestConfig);
 
         if (site != null) {
             // 设置用户代理
-            httpClientBuilder.setUserAgent(site.getUserAgent());
+            if (site.getUserAgent() != null) {
+                httpClientBuilder.setUserAgent(site.getUserAgent());
+            }
 
-            // 设置Cookie
+            // 设置压缩支持
             if (site.isUseGzip()) {
                 httpClientBuilder.addInterceptorFirst((org.apache.http.HttpRequest request, org.apache.http.protocol.HttpContext context) -> {
                     if (!request.containsHeader("Accept-Encoding")) {
-                        request.addHeader("Accept-Encoding", "gzip");
+                        request.addHeader("Accept-Encoding", "gzip, deflate");
                     }
                 });
             }
 
             // 设置Cookie存储
-            CookieStore cookieStore = new BasicCookieStore();
-            for (Map.Entry<String, String> cookieEntry : site.getCookies().entrySet()) {
-                BasicClientCookie cookie = new BasicClientCookie(cookieEntry.getKey(), cookieEntry.getValue());
-                cookie.setDomain(site.getDomain());
-                cookieStore.addCookie(cookie);
+            if (site.getCookies() != null && !site.getCookies().isEmpty()) {
+                CookieStore cookieStore = new BasicCookieStore();
+                for (Map.Entry<String, String> cookieEntry : site.getCookies().entrySet()) {
+                    BasicClientCookie cookie = new BasicClientCookie(cookieEntry.getKey(), cookieEntry.getValue());
+                    cookie.setDomain(site.getDomain());
+                    cookieStore.addCookie(cookie);
+                }
+                httpClientBuilder.setDefaultCookieStore(cookieStore);
             }
-            httpClientBuilder.setDefaultCookieStore(cookieStore);
         }
 
+        log.info("创建HttpClient成功，SSL证书验证已启用");
         return httpClientBuilder.build();
     }
 }

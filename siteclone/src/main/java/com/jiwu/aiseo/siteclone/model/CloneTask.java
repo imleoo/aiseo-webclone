@@ -16,6 +16,7 @@ public class CloneTask {
     private String errorMessage;
     private int pagesCrawled;
     private int filesDownloaded;
+    private long totalBytesDownloaded; // 新增：总下载字节数
 
     public CloneTask(String url, String outputDir) {
         this.id = UUID.randomUUID().toString();
@@ -26,6 +27,7 @@ public class CloneTask {
         this.updatedAt = LocalDateTime.now();
         this.pagesCrawled = 0;
         this.filesDownloaded = 0;
+        this.totalBytesDownloaded = 0L; // 初始化为0
     }
 
     public void setRunning() {
@@ -52,5 +54,14 @@ public class CloneTask {
     public void incrementFilesDownloaded() {
         this.filesDownloaded++;
         this.updatedAt = LocalDateTime.now();
+    }
+
+    public void addBytesDownloaded(long bytes) {
+        this.totalBytesDownloaded += bytes;
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public long getTotalBytesDownloaded() {
+        return this.totalBytesDownloaded;
     }
 }
