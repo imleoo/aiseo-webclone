@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import com.jiwu.aiseo.siteclone.config.SiteCloneProperties;
 import com.jiwu.aiseo.siteclone.downloader.CustomHttpClientDownloader;
+import com.jiwu.aiseo.siteclone.config.StaticResourceConfig;
 import com.jiwu.aiseo.siteclone.dto.CloneRequest;
 import com.jiwu.aiseo.siteclone.dto.CloneResponse;
 import com.jiwu.aiseo.siteclone.model.CloneTask;
@@ -32,6 +33,9 @@ public class SiteCloneService {
 
     @Autowired
     private SiteCloneProperties properties;
+    
+    @Autowired
+    private StaticResourceConfig staticResourceConfig;
 
     @Value("${siteclone.download.base-dir}")
     private String downloadBaseDir;
@@ -127,7 +131,8 @@ public class SiteCloneService {
                 sleepTime, 
                 task.getOutputDir(), 
                 task,
-                properties // 传递配置属性
+                properties, // 传递配置属性
+                staticResourceConfig.isPreserveOriginalUrls() // 传递是否保留原始URL的配置
             );
 
             Spider.create(processor)

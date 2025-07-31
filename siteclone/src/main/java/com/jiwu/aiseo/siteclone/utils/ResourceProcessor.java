@@ -81,21 +81,9 @@ public class ResourceProcessor {
                     // 获取绝对URL
                     String absUrl = getAbsoluteUrl(baseUrl, originalUrl);
                     
-                    // 使用路径映射器处理资源URL
-                    WebsitePathMapper.PathMappingResult resourceMapping = pathMapper.mapUrlToLocalPath(absUrl);
-                    
-                    // 下载资源
-                    downloader.downloadResource(absUrl, resourceMapping.getLocalPath());
-                    
-                    // 计算CSS文件到资源的相对路径
-                    String relativePathFromCss = pathMapper.calculateRelativePath(
-                        cssFilePath, 
-                        resourceMapping.getLocalPath()
-                    );
-                    
-                    // 替换URL
-                    matcher.appendReplacement(newCssContent, "url(" + relativePathFromCss + ")");
-                    log.debug("CSS中URL已替换: {} -> {}", originalUrl, relativePathFromCss);
+                    // 保留原始URL，不下载资源
+                    matcher.appendReplacement(newCssContent, "url(" + absUrl + ")");
+                    log.debug("CSS中URL已替换为绝对URL: {} -> {}", originalUrl, absUrl);
                 } catch (Exception e) {
                     log.error("处理CSS中的URL失败: {}", originalUrl, e);
                     matcher.appendReplacement(newCssContent, "url(" + originalUrl + ")");
@@ -150,33 +138,8 @@ public class ResourceProcessor {
                 String quote = matcher.group(1); // 引号类型 (' 或 ")
                 String fullUrl = matcher.group(2); // 完整URL
                 
-                // 检查是否是同域URL
-                if (isSameDomain(fullUrl, baseUrl)) {
-                    try {
-                        // 使用路径映射器处理资源URL
-                        WebsitePathMapper.PathMappingResult resourceMapping = pathMapper.mapUrlToLocalPath(fullUrl);
-                        
-                        // 下载资源
-                        downloader.downloadResource(fullUrl, resourceMapping.getLocalPath());
-                        
-                        // 计算JS文件到资源的相对路径
-                        String relativePathFromJs = pathMapper.calculateRelativePath(
-                            jsFilePath, 
-                            resourceMapping.getLocalPath()
-                        );
-                        
-                        // 替换URL
-                        matcher.appendReplacement(newJsContent, quote + relativePathFromJs + quote);
-                        log.debug("JS中URL已替换: {} -> {}", fullUrl, relativePathFromJs);
-                        modified = true;
-                    } catch (Exception e) {
-                        log.error("处理JS中的URL失败: {}", fullUrl, e);
-                        matcher.appendReplacement(newJsContent, quote + fullUrl + quote);
-                    }
-                } else {
-                    // 不是同域URL，保持不变
-                    matcher.appendReplacement(newJsContent, quote + fullUrl + quote);
-                }
+                // 保留所有URL，不做修改
+                matcher.appendReplacement(newJsContent, quote + fullUrl + quote);
             }
             
             if (modified) {
@@ -225,21 +188,9 @@ public class ResourceProcessor {
                     // 获取绝对URL
                     String absUrl = getAbsoluteUrl(baseUrl, originalUrl);
                     
-                    // 使用路径映射器处理资源URL
-                    WebsitePathMapper.PathMappingResult resourceMapping = pathMapper.mapUrlToLocalPath(absUrl);
-                    
-                    // 下载资源
-                    downloader.downloadResource(absUrl, resourceMapping.getLocalPath());
-                    
-                    // 计算当前页面到资源的相对路径
-                    String relativePathFromPage = pathMapper.calculateRelativePath(
-                        currentPagePath, 
-                        resourceMapping.getLocalPath()
-                    );
-                    
-                    // 替换URL
-                    matcher.appendReplacement(newStyle, "url(" + relativePathFromPage + ")");
-                    log.debug("内联样式中URL已替换: {} -> {}", originalUrl, relativePathFromPage);
+                    // 保留原始URL，不下载资源
+                    matcher.appendReplacement(newStyle, "url(" + absUrl + ")");
+                    log.debug("内联样式中URL已替换为绝对URL: {} -> {}", originalUrl, absUrl);
                 } catch (Exception e) {
                     log.error("处理内联样式中的URL失败: {}", originalUrl, e);
                     matcher.appendReplacement(newStyle, "url(" + originalUrl + ")");
@@ -290,24 +241,12 @@ public class ResourceProcessor {
                     // 获取绝对URL
                     String absUrl = getAbsoluteUrl(baseUrl, url);
                     
-                    // 使用路径映射器处理资源URL
-                    WebsitePathMapper.PathMappingResult resourceMapping = pathMapper.mapUrlToLocalPath(absUrl);
-                    
-                    // 下载资源
-                    downloader.downloadResource(absUrl, resourceMapping.getLocalPath());
-                    
-                    // 计算当前页面到资源的相对路径
-                    String relativePathFromPage = pathMapper.calculateRelativePath(
-                        currentPagePath, 
-                        resourceMapping.getLocalPath()
-                    );
-                    
-                    // 添加到新的srcset
+                    // 保留原始URL，不下载资源
                     if (i > 0) {
                         newSrcset.append(", ");
                     }
-                    newSrcset.append(relativePathFromPage).append(descriptor);
-                    log.debug("srcset中URL已替换: {} -> {}", url, relativePathFromPage);
+                    newSrcset.append(absUrl).append(descriptor);
+                    log.debug("srcset中URL已替换为绝对URL: {} -> {}", url, absUrl);
                 } catch (Exception e) {
                     log.error("处理srcset中的URL失败: {}", url, e);
                     if (i > 0) newSrcset.append(", ");
@@ -331,71 +270,7 @@ public class ResourceProcessor {
     public String createInterceptorScript() {
         return "// 资源拦截器脚本 - 处理动态加载的资源\n" +
                "document.addEventListener('DOMContentLoaded', function() {\n" +
-               "  // 保存原始方法\n" +
-               "  const originalFetch = window.fetch;\n" +
-               "  const originalXHR = window.XMLHttpRequest.prototype.open;\n" +
-               "  const originalImageSrc = Object.getOwnPropertyDescriptor(Image.prototype, 'src');\n" +
-               "\n" +
-               "  // 相对路径转换函数\n" +
-               "  function convertToLocalPath(url) {\n" +
-               "    if (!url || typeof url !== 'string') return url;\n" +
-               "    \n" +
-               "    // 跳过已经是相对路径或特殊URL的情况\n" +
-               "    if (url.startsWith('./') || url.startsWith('../') || \n" +
-               "        url.startsWith('data:') || url.startsWith('#') || \n" +
-               "        url.startsWith('javascript:') || url.startsWith('blob:')) {\n" +
-               "      return url;\n" +
-               "    }\n" +
-               "    \n" +
-               "    // 处理以/开头的绝对路径\n" +
-               "    if (url.startsWith('/') && !url.startsWith('//')) {\n" +
-               "      return '.' + url;\n" +
-               "    }\n" +
-               "    \n" +
-               "    // 处理完整URL\n" +
-               "    try {\n" +
-               "      const urlObj = new URL(url);\n" +
-               "      const currentDomain = window.location.hostname;\n" +
-               "      \n" +
-               "      // 如果是同域请求，转换为相对路径\n" +
-               "      if (urlObj.hostname === currentDomain) {\n" +
-               "        return '.' + urlObj.pathname + (urlObj.search || '') + (urlObj.hash || '');\n" +
-               "      }\n" +
-               "    } catch (e) {\n" +
-               "      console.warn('URL解析失败:', url, e);\n" +
-               "    }\n" +
-               "    \n" +
-               "    return url;\n" +
-               "  }\n" +
-               "\n" +
-               "  // 拦截fetch请求\n" +
-               "  window.fetch = function(resource, options) {\n" +
-               "    if (typeof resource === 'string') {\n" +
-               "      resource = convertToLocalPath(resource);\n" +
-               "    } else if (resource instanceof Request) {\n" +
-               "      resource = new Request(\n" +
-               "        convertToLocalPath(resource.url),\n" +
-               "        resource\n" +
-               "      );\n" +
-               "    }\n" +
-               "    return originalFetch.call(this, resource, options);\n" +
-               "  };\n" +
-               "\n" +
-               "  // 拦截XHR请求\n" +
-               "  window.XMLHttpRequest.prototype.open = function(method, url, async, user, password) {\n" +
-               "    const newUrl = convertToLocalPath(url);\n" +
-               "    return originalXHR.call(this, method, newUrl, async, user, password);\n" +
-               "  };\n" +
-               "\n" +
-               "  // 拦截Image.src设置\n" +
-               "  Object.defineProperty(Image.prototype, 'src', {\n" +
-               "    set: function(url) {\n" +
-               "      originalImageSrc.set.call(this, convertToLocalPath(url));\n" +
-               "    },\n" +
-               "    get: originalImageSrc.get\n" +
-               "  });\n" +
-               "\n" +
-               "  console.log('资源拦截器已启用 - 动态加载的资源将使用本地路径');\n" +
+               "  console.log('网站镜像加载完成 - 使用原始资源URL');\n" +
                "});\n";
     }
     

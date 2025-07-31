@@ -33,3 +33,12 @@ siteclone:
   task:
     cleanup-interval: 3600000 # 任务清理间隔 (1小时)
     max-task-age: 86400000 # 任务最大保留时间 (24小时)
+    
+  static-resources:
+    preserve-original-urls: false # 是否保留原始URL而不是下载资源文件
+    allowed-external-domains: # 允许的外部资源域名列表
+      - cdn.jsdelivr.net
+      - cdnjs.cloudflare.com
+      - fonts.googleapis.com
+      - fonts.gstatic.com
+      - images.unsplash.com

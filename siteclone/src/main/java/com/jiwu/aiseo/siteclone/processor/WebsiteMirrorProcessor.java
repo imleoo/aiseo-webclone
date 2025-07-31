@@ -41,8 +41,11 @@ public class WebsiteMirrorProcessor implements PageProcessor {
     private final WebsitePathMapper pathMapper; // 路径映射器
     private final ResourceProcessor resourceProcessor; // 资源处理器
     private final WebResourceDownloader resourceDownloader; // 资源下载器
+    private final boolean preserveOriginalUrls; // 是否保留原始URL
 
-    public WebsiteMirrorProcessor(String domain, int retryTimes, int sleepTime, String outputDir, CloneTask cloneTask, SiteCloneProperties properties) {
+    public WebsiteMirrorProcessor(String domain, int retryTimes, int sleepTime, String outputDir, CloneTask cloneTask, 
+            SiteCloneProperties properties, boolean preserveOriginalUrls) {
+        this.preserveOriginalUrls = preserveOriginalUrls;
         this.site = Site.me()
                 .setDomain(domain)
                 .setRetryTimes(retryTimes)
@@ -256,30 +259,37 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                         logger.info("资源被重新定位到安全位置: {} -> {}", absUrl, resourceMapping.getRelativePath());
                     }
 
-                    // 下载资源
-                    boolean downloaded = resourceDownloader.downloadResource(absUrl, resourceMapping.getLocalPath());
-                    
-                    if (downloaded) {
-                        // 计算当前页面到资源的相对路径
-                        String relativePathFromCurrentPage = pathMapper.calculateRelativePath(
-                            currentPagePath, 
-                            resourceMapping.getLocalPath()
-                        );
-                        
-                        // 修改HTML中的链接为本地相对路径
-                        element.attr(attrName, relativePathFromCurrentPage);
-                        logger.debug("更新链接: {} -> {}", originalUrl, relativePathFromCurrentPage);
-                        
-                        // 对于CSS和JS文件，进行额外处理
-                        String localPath = resourceMapping.getLocalPath();
-                        if (element.tagName().equals("link") && 
-                            element.attr("rel").toLowerCase().contains("stylesheet")) {
-                            // 处理CSS文件中的URL引用
-                            resourceProcessor.processCssFile(localPath, absUrl);
-                        } else if (element.tagName().equals("script")) {
-                            // 处理JS文件中的硬编码URL
-                            resourceProcessor.processJsFile(localPath, baseUrl);
+                    // 如果配置为保留原始URL，则不下载资源
+                    if (preserveOriginalUrls) {
+                        // 对于CSS、JS和图片资源，使用API路径
+                        if (element.tagName().equals("link") && attrName.equals("href") && element.attr("rel").equals("stylesheet")) {
+                            // 处理CSS文件
+                            String apiPath = "/api/files/" + domain + "/css/";
+                            String fileName = absUrl.substring(absUrl.lastIndexOf('/') + 1);
+                            element.attr(attrName, apiPath + fileName);
+                            logger.debug("转换为API路径: {} -> {}", originalUrl, apiPath + fileName);
+                        } else if (element.tagName().equals("script") && attrName.equals("src")) {
+                            // 处理JS文件
+                            String apiPath = "/api/files/" + domain + "/js/";
+                            String fileName = absUrl.substring(absUrl.lastIndexOf('/') + 1);
+                            element.attr(attrName, apiPath + fileName);
+                            logger.debug("转换为API路径: {} -> {}", originalUrl, apiPath + fileName);
+                        } else if (element.tagName().equals("img") && attrName.equals("src")) {
+                            // 处理图片文件
+                            String apiPath = "/api/files/" + domain + "/images/";
+                            String fileName = absUrl.substring(absUrl.lastIndexOf('/') + 1);
+                            element.attr(attrName, apiPath + fileName);
+                            logger.debug("转换为API路径: {} -> {}", originalUrl, apiPath + fileName);
+                        } else {
+                            // 保留原始URL
+                            element.attr(attrName, absUrl);
+                            logger.debug("保留原始URL: {}", absUrl);
                         }
+                    } else {
+                        // 下载资源并更新链接
+                        resourceDownloader.downloadResource(absUrl, resourceMapping.getLocalPath());
+                        element.attr(attrName, resourceMapping.getRelativePath());
+                        logger.debug("更新链接: {} -> {}", originalUrl, resourceMapping.getRelativePath());
                     }
                 } catch (Exception e) {
                     logger.error("处理资源时发生意外错误: {}={}, 错误: {}", 
