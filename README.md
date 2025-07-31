@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Build Status](https://github.com/your-repo/aiseo-webclone/actions/workflows/build.yml/badge.svg)](https://github.com/your-repo/aiseo-webclone/actions)
+[![中文文档](https://img.shields.io/badge/文档-中文版-blue.svg)](README_ZH.md)
 
 A powerful multi-module Spring Boot application for web content processing and cloning, A tool for **https://Aiseo.icu/**.
 
@@ -14,6 +15,9 @@ A powerful multi-module Spring Boot application for web content processing and c
 - **Modular Architecture**: Well-organized multi-module structure
 - **Customizable**: Easily extendable for specific needs
 - **High Performance**: Optimized for large-scale web processing
+- **Security**: Built-in security measures to prevent unsafe operations
+- **Resource Management**: Efficient handling of images, CSS, JS and other web resources
+- **Asynchronous Processing**: Non-blocking task execution with status tracking
 
 ## 🛠 Technology Stack
 
@@ -32,6 +36,7 @@ A powerful multi-module Spring Boot application for web content processing and c
 ### Other Libraries
 - Apache HttpClient (HTTP communication)
 - Selenium WebDriver (browser automation via WebMagic)
+- Lombok (code generation)
 
 ## 🚀 Quick Start
 
@@ -70,6 +75,56 @@ mvn clean package
 java -jar siteclone/target/siteclone-*.jar
 ```
 
+## 🔧 API Usage
+
+### Clone a Website
+```
+POST /api/clone
+```
+
+Request body:
+```json
+{
+  "url": "https://example.com",
+  "threadCount": 5,
+  "retryTimes": 3,
+  "sleepTime": 1000
+}
+```
+
+Response:
+```json
+{
+  "taskId": "uuid-task-id",
+  "url": "https://example.com",
+  "outputDir": "/path/to/output",
+  "status": "RUNNING",
+  "createdAt": "2023-01-01T12:00:00",
+  "updatedAt": "2023-01-01T12:00:00",
+  "pagesCrawled": 0,
+  "filesDownloaded": 0
+}
+```
+
+### Check Task Status
+```
+GET /api/clone/{taskId}
+```
+
+Response:
+```json
+{
+  "taskId": "uuid-task-id",
+  "url": "https://example.com",
+  "outputDir": "/path/to/output",
+  "status": "COMPLETED",
+  "createdAt": "2023-01-01T12:00:00",
+  "updatedAt": "2023-01-01T12:05:00",
+  "pagesCrawled": 25,
+  "filesDownloaded": 87
+}
+```
+
 ## 🤝 Contributing
 
 We welcome contributions from the community! Here's how you can help:
@@ -93,3 +148,7 @@ Please ensure your code:
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+[中文文档](README_ZH.md)
