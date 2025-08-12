@@ -16,6 +16,7 @@ public class SiteCloneProperties {
     private Crawler crawler = new Crawler();
     private Security security = new Security();
     private Task task = new Task();
+    private StaticResources staticResources = new StaticResources();
 
     @Data
     public static class Download {
@@ -45,5 +46,11 @@ public class SiteCloneProperties {
     public static class Task {
         private long cleanupInterval = 3600000L; // 1小时
         private long maxTaskAge = 86400000L; // 24小时
+    }
+
+    @Data
+    public static class StaticResources {
+        private boolean preserveOriginalUrls = false;
+        private java.util.List<String> allowedExternalDomains = new java.util.ArrayList<>();
     }
 }

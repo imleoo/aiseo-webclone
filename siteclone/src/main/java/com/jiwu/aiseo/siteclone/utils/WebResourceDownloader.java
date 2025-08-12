@@ -35,13 +35,17 @@ public class WebResourceDownloader implements ResourceProcessor.ResourceDownload
         }
 
         try {
-            // 检查域名是否匹配
+            // 检查域名是否匹配或是否为允许的外部域名
             String fileDomain = extractDomain(url);
             String siteDomain = site.getDomain();
             
             if (!fileDomain.equals(siteDomain)) {
-                log.debug("跳过非镜像域名文件: {}", url);
-                return false;
+                // 检查是否为允许的外部域名
+                if (!isAllowedExternalDomain(fileDomain)) {
+                    log.debug("跳过不允许的外部域名文件: {}", url);
+                    return false;
+                }
+                log.debug("下载允许的外部域名文件: {}", url);
             }
             
             // 检查文件是否已存在
@@ -93,5 +97,19 @@ public class WebResourceDownloader implements ResourceProcessor.ResourceDownload
             log.error("无效的URL格式: {}", url, e);
             return "";
         }
+    }
+    
+    /**
+     * 检查是否为允许的外部域名
+     * 
+     * @param domain 域名
+     * @return 是否允许
+     */
+    private boolean isAllowedExternalDomain(String domain) {
+        if (properties.getStaticResources() != null && 
+            properties.getStaticResources().getAllowedExternalDomains() != null) {
+            return properties.getStaticResources().getAllowedExternalDomains().contains(domain);
+        }
+        return false;
     }
 }

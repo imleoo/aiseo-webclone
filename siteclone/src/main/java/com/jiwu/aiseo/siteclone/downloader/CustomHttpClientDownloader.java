@@ -22,7 +22,10 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.impl.cookie.BasicClientCookie;
 
 import lombok.extern.slf4j.Slf4j;
+import us.codecraft.webmagic.Page;
+import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Site;
+import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.downloader.HttpClientDownloader;
 
 /**
@@ -35,6 +38,53 @@ public class CustomHttpClientDownloader extends HttpClientDownloader {
     private static final int DEFAULT_SOCKET_TIMEOUT = 30000;  // 30秒
     private static final int DEFAULT_REQUEST_TIMEOUT = 60000; // 60秒
     private static final int MAX_CONNECTIONS = 50;
+    
+    /**
+     * 下载URL内容为字节数组
+     * 
+     * @param url 要下载的URL
+     * @param site 站点配置
+     * @return 下载的内容字节数组，如果下载失败则返回null
+     */
+    public byte[] download(String url, Site site) {
+        try {
+            Request request = new Request(url);
+            // 设置站点配置
+            if (site != null) {
+                if (site.getHeaders() != null) {
+                    for (Map.Entry<String, String> entry : site.getHeaders().entrySet()) {
+                        request.addHeader(entry.getKey(), entry.getValue());
+                    }
+                }
+                if (site.getCookies() != null) {
+                    for (Map.Entry<String, String> entry : site.getCookies().entrySet()) {
+                        request.addCookie(entry.getKey(), entry.getValue());
+                    }
+                }
+            }
+            
+            // 使用父类的download方法下载内容
+            Page page = super.download(request, new Task() {
+                @Override
+                public String getUUID() {
+                    return "download-task";
+                }
+                
+                @Override
+                public Site getSite() {
+                    return site;
+                }
+            });
+            
+            if (page != null && page.getBytes() != null) {
+                return page.getBytes();
+            }
+        } catch (Exception e) {
+            log.error("下载资源失败: {}", url, e);
+        }
+        
+        return null;
+    }
 
     public CloseableHttpClient getHttpClient(Site site) {
         if (site == null) {

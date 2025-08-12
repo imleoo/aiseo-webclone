@@ -1,0 +1,1098 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.jiwu.aiseo:siteclone >----------------------
+[INFO] Building siteclone 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.3:run (default-cli) > test-compile @ siteclone >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ siteclone ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ siteclone ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ siteclone ---
+[INFO] skip non existing resourceDirectory /Users/leoobai/jiwu-project/aiseo/aiseo-webclone/siteclone/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ siteclone ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< spring-boot:3.5.3:run (default-cli) < test-compile @ siteclone <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.3:run (default-cli) @ siteclone ---
+[INFO] Attaching agents: []
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.3)
+
+2025-08-12T11:45:32.725+08:00  INFO 71337 --- [siteclone] [           main] c.j.a.siteclone.SiteCloneApplication     : Starting SiteCloneApplication using Java 23.0.2 with PID 71337 (/Users/leoobai/jiwu-project/aiseo/aiseo-webclone/siteclone/target/classes started by leoobai in /Users/leoobai/jiwu-project/aiseo/aiseo-webclone/siteclone)
+2025-08-12T11:45:32.726+08:00 DEBUG 71337 --- [siteclone] [           main] c.j.a.siteclone.SiteCloneApplication     : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-08-12T11:45:32.726+08:00  INFO 71337 --- [siteclone] [           main] c.j.a.siteclone.SiteCloneApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-08-12T11:45:33.303+08:00  INFO 71337 --- [siteclone] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-08-12T11:45:33.313+08:00  INFO 71337 --- [siteclone] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-12T11:45:33.314+08:00  INFO 71337 --- [siteclone] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-08-12T11:45:33.341+08:00  INFO 71337 --- [siteclone] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-12T11:45:33.342+08:00  INFO 71337 --- [siteclone] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 588 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-08-12T11:45:33.480+08:00  INFO 71337 --- [siteclone] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-08-12T11:45:33.706+08:00  INFO 71337 --- [siteclone] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-08-12T11:45:33.749+08:00  INFO 71337 --- [siteclone] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-08-12T11:45:33.759+08:00  INFO 71337 --- [siteclone] [           main] c.j.a.siteclone.SiteCloneApplication     : Started SiteCloneApplication in 1.267 seconds (process running for 1.449)
+2025-08-12T11:45:43.951+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-12T11:45:43.951+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-12T11:45:43.952+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-12T11:45:44.072+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-1] us.codecraft.webmagic.Spider             : Spider easencia.com started!
+2025-08-12T11:45:44.524+08:00  INFO 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com
+2025-08-12T11:45:44.559+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:45:44.559+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/contact.html
+2025-08-12T11:45:44.559+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/index.html
+2025-08-12T11:45:44.566+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:45:44.673+08:00  INFO 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css (大小: 21161 字节)
+2025-08-12T11:45:44.673+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:45:44.673+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:45:44.674+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:45:44.754+08:00  INFO 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js (大小: 6534 字节)
+2025-08-12T11:45:44.754+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:45:44.783+08:00  INFO 71337 --- [siteclone] [       Thread-1] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:45:44.783+08:00  INFO 71337 --- [siteclone] [       Thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:45:44.811+08:00  INFO 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg (大小: 433 字节)
+2025-08-12T11:45:44.811+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:45:44.812+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:45:44.812+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:45:44.812+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:45:44.813+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T11:45:44.813+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:45:44.813+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:44.813+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:44.813+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:44.813+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:44.813+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:44.813+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:44.814+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:44.816+08:00  INFO 71337 --- [siteclone] [pool-3-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+get page: https://easencia.com
+2025-08-12T11:45:45.889+08:00  INFO 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/index.html
+2025-08-12T11:45:45.893+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:45:45.893+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:45:45.893+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/contact.html
+2025-08-12T11:45:45.897+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:45:45.925+08:00  INFO 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/contact.html
+2025-08-12T11:45:45.930+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T11:45:45.930+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/index.html
+2025-08-12T11:45:45.930+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T11:45:45.930+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:45:45.933+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:45:45.933+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:45:45.933+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:45:45.933+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:45:45.933+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:45:45.933+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T11:45:45.933+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:45:45.934+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:45:45.934+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:45:45.934+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:45:45.934+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:45:45.935+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T11:45:45.936+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+2025-08-12T11:45:45.936+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> index.html
+2025-08-12T11:45:45.936+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T11:45:45.936+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:45:45.936+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:45.936+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:45.936+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:45.936+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:45.937+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:45.939+08:00  INFO 71337 --- [siteclone] [pool-3-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+get page: https://easencia.com/contact.html
+2025-08-12T11:45:46.041+08:00  INFO 71337 --- [siteclone] [       Thread-2] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:45:46.041+08:00  INFO 71337 --- [siteclone] [       Thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:45:46.097+08:00  INFO 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css (大小: 146 字节)
+2025-08-12T11:45:46.097+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T11:45:46.098+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:45:46.098+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:45:46.165+08:00  INFO 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js (大小: 146 字节)
+2025-08-12T11:45:46.165+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T11:45:46.165+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:45:46.165+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T11:45:46.165+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:45:46.202+08:00  INFO 71337 --- [siteclone] [       Thread-3] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:45:46.202+08:00  INFO 71337 --- [siteclone] [       Thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:45:46.230+08:00  INFO 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg (大小: 146 字节)
+2025-08-12T11:45:46.231+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T11:45:46.232+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+2025-08-12T11:45:46.232+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T11:45:46.234+08:00  INFO 71337 --- [siteclone] [pool-3-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+get page: https://easencia.com/en/index.html
+2025-08-12T11:45:47.013+08:00  INFO 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/contact.html
+2025-08-12T11:45:47.013+08:00  INFO 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/index.html
+2025-08-12T11:45:47.015+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:45:47.015+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:45:47.015+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/contact.html
+2025-08-12T11:45:47.016+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T11:45:47.016+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/index.html
+2025-08-12T11:45:47.016+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T11:45:47.016+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:45:47.017+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:45:47.017+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:45:47.017+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:45:47.017+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:45:47.017+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:45:47.017+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T11:45:47.017+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:45:47.017+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:45:47.017+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T11:45:47.018+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:45:47.019+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:47.019+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> en/index.html
+2025-08-12T11:45:47.019+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+2025-08-12T11:45:47.019+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T11:45:47.019+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T11:45:47.019+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:45:47.019+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:47.020+08:00  INFO 71337 --- [siteclone] [pool-3-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+get page: https://easencia.com/en/contact.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:45:47.020+08:00 DEBUG 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:45:47.021+08:00  INFO 71337 --- [siteclone] [pool-3-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+get page: https://easencia.com/index.html
+2025-08-12T11:45:47.121+08:00  INFO 71337 --- [siteclone] [       Thread-4] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:45:47.121+08:00  INFO 71337 --- [siteclone] [       Thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:45:47.122+08:00  INFO 71337 --- [siteclone] [       Thread-5] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:45:47.122+08:00  INFO 71337 --- [siteclone] [       Thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:45:48.026+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-1] us.codecraft.webmagic.Spider             : Spider easencia.com closed! 5 pages downloaded.
+2025-08-12T11:45:48.027+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-1] c.j.a.s.service.SiteCloneService         : Clone task completed: 1b54f884-dc68-4936-a905-049128738517
+2025-08-12T11:49:50.848+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-5] us.codecraft.webmagic.Spider             : Spider easencia.com started!
+2025-08-12T11:49:51.012+08:00  INFO 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/
+2025-08-12T11:49:51.014+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:49:51.015+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/contact.html
+2025-08-12T11:49:51.015+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/index.html
+2025-08-12T11:49:51.017+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:49:51.121+08:00  INFO 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css (大小: 21161 字节)
+2025-08-12T11:49:51.122+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:49:51.122+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:49:51.122+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:49:51.191+08:00  INFO 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js (大小: 6534 字节)
+2025-08-12T11:49:51.192+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:49:51.229+08:00  INFO 71337 --- [siteclone] [       Thread-6] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:49:51.229+08:00  INFO 71337 --- [siteclone] [       Thread-6] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:49:51.253+08:00  INFO 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg (大小: 433 字节)
+2025-08-12T11:49:51.253+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:49:51.255+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:49:51.255+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:49:51.255+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:49:51.325+08:00  INFO 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html (大小: 14409 字节)
+2025-08-12T11:49:51.327+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:49:51.390+08:00  INFO 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html (大小: 9562 字节)
+2025-08-12T11:49:51.390+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:51.390+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:51.390+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:51.390+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:51.391+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:51.391+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:51.391+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:51.391+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:51.391+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:51.391+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:51.391+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:51.391+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:51.391+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:51.392+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:51.392+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:51.393+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:51.393+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:51.395+08:00  INFO 71337 --- [siteclone] [pool-4-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+get page: https://easencia.com/
+2025-08-12T11:49:52.464+08:00  INFO 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/index.html
+2025-08-12T11:49:52.467+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:49:52.467+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:49:52.467+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/contact.html
+2025-08-12T11:49:52.469+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:49:52.515+08:00  INFO 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/contact.html
+2025-08-12T11:49:52.517+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T11:49:52.517+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/index.html
+2025-08-12T11:49:52.517+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T11:49:52.517+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:49:52.519+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:49:52.520+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:49:52.520+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:49:52.521+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:49:52.521+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:49:52.521+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T11:49:52.521+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:49:52.521+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:49:52.521+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:49:52.521+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:49:52.521+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:49:52.522+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T11:49:52.522+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+2025-08-12T11:49:52.522+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:52.523+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:52.524+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:52.524+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:52.524+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:52.524+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:52.524+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:52.524+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:52.525+08:00  INFO 71337 --- [siteclone] [pool-4-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+get page: https://easencia.com/contact.html
+2025-08-12T11:49:52.628+08:00  INFO 71337 --- [siteclone] [       Thread-7] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:49:52.628+08:00  INFO 71337 --- [siteclone] [       Thread-7] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:49:52.651+08:00  INFO 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css (大小: 146 字节)
+2025-08-12T11:49:52.652+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T11:49:52.652+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:49:52.652+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:49:52.720+08:00  INFO 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js (大小: 146 字节)
+2025-08-12T11:49:52.721+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T11:49:52.721+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:49:52.721+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T11:49:52.721+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:49:52.757+08:00  INFO 71337 --- [siteclone] [       Thread-8] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:49:52.758+08:00  INFO 71337 --- [siteclone] [       Thread-8] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:49:52.794+08:00  INFO 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg (大小: 146 字节)
+2025-08-12T11:49:52.794+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T11:49:52.860+08:00  INFO 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html (大小: 12074 字节)
+2025-08-12T11:49:52.861+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T11:49:52.863+08:00  INFO 71337 --- [siteclone] [pool-4-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+get page: https://easencia.com/en/index.html
+2025-08-12T11:49:53.594+08:00  INFO 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/index.html
+2025-08-12T11:49:53.595+08:00  INFO 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/contact.html
+2025-08-12T11:49:53.597+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T11:49:53.597+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:49:53.597+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/index.html
+2025-08-12T11:49:53.597+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:49:53.597+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T11:49:53.597+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/contact.html
+2025-08-12T11:49:53.597+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:49:53.599+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:49:53.599+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:49:53.599+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:49:53.599+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:49:53.599+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:49:53.599+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:49:53.599+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:49:53.599+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:49:53.600+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> en/index.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:53.601+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:53.602+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:53.602+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:53.602+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:53.602+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:53.602+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:53.602+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:53.602+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:53.602+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:53.602+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:49:53.602+08:00 DEBUG 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:49:53.603+08:00  INFO 71337 --- [siteclone] [pool-4-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+get page: https://easencia.com/en/contact.html
+2025-08-12T11:49:53.604+08:00  INFO 71337 --- [siteclone] [pool-4-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+get page: https://easencia.com/index.html
+2025-08-12T11:49:53.704+08:00  INFO 71337 --- [siteclone] [      Thread-10] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:49:53.704+08:00  INFO 71337 --- [siteclone] [      Thread-10] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:49:53.705+08:00  INFO 71337 --- [siteclone] [       Thread-9] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:49:53.706+08:00  INFO 71337 --- [siteclone] [       Thread-9] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:49:54.607+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-5] us.codecraft.webmagic.Spider             : Spider easencia.com closed! 5 pages downloaded.
+2025-08-12T11:49:54.607+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-5] c.j.a.s.service.SiteCloneService         : Clone task completed: 476a0661-17f3-476e-987b-c85405d8813b
+2025-08-12T11:50:17.442+08:00  WARN 71337 --- [siteclone] [nio-8082-exec-9] c.j.a.s.controller.ResourceController    : 请求的资源文件不存在: /Users/leoobai/aiseo-downloads/siteclone/en/css/style.css
+2025-08-12T11:50:17.442+08:00  WARN 71337 --- [siteclone] [io-8082-exec-10] c.j.a.s.controller.ResourceController    : 请求的资源文件不存在: /Users/leoobai/aiseo-downloads/siteclone/images/logo.svg
+2025-08-12T11:50:17.449+08:00  WARN 71337 --- [siteclone] [nio-8082-exec-2] c.j.a.s.controller.ResourceController    : 请求的资源文件不存在: /Users/leoobai/aiseo-downloads/siteclone/en/images/logo.svg
+2025-08-12T11:50:17.449+08:00  WARN 71337 --- [siteclone] [nio-8082-exec-1] c.j.a.s.controller.ResourceController    : 请求的资源文件不存在: /Users/leoobai/aiseo-downloads/siteclone/en/js/main.js
+2025-08-12T11:54:40.970+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-7] us.codecraft.webmagic.Spider             : Spider easencia.com started!
+2025-08-12T11:54:41.132+08:00  INFO 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com
+2025-08-12T11:54:41.136+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:54:41.136+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/contact.html
+2025-08-12T11:54:41.136+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/index.html
+2025-08-12T11:54:41.137+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:54:41.243+08:00  INFO 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css (大小: 21161 字节)
+2025-08-12T11:54:41.243+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:54:41.243+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:54:41.243+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:54:41.314+08:00  INFO 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js (大小: 6534 字节)
+2025-08-12T11:54:41.314+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:54:41.346+08:00  INFO 71337 --- [siteclone] [      Thread-11] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:54:41.346+08:00  INFO 71337 --- [siteclone] [      Thread-11] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:54:41.368+08:00  INFO 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg (大小: 433 字节)
+2025-08-12T11:54:41.368+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:54:41.368+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:54:41.368+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:54:41.368+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:54:41.425+08:00  INFO 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html (大小: 14409 字节)
+2025-08-12T11:54:41.425+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:54:41.501+08:00  INFO 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html (大小: 9562 字节)
+2025-08-12T11:54:41.501+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:41.502+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:41.503+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:41.504+08:00  INFO 71337 --- [siteclone] [pool-5-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+get page: https://easencia.com
+2025-08-12T11:54:42.569+08:00  INFO 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/index.html
+2025-08-12T11:54:42.570+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:54:42.571+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:54:42.571+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/contact.html
+2025-08-12T11:54:42.572+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:54:42.621+08:00  INFO 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/contact.html
+2025-08-12T11:54:42.623+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T11:54:42.623+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/index.html
+2025-08-12T11:54:42.623+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T11:54:42.623+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:54:42.625+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:54:42.625+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:54:42.626+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:54:42.626+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:54:42.626+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:54:42.626+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T11:54:42.626+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:54:42.626+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:54:42.626+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:54:42.626+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:54:42.626+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:54:42.627+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T11:54:42.627+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+2025-08-12T11:54:42.627+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> index.html
+2025-08-12T11:54:42.627+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T11:54:42.627+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:54:42.627+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:42.627+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:42.627+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:42.627+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:42.627+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:42.627+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:42.628+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:42.629+08:00  INFO 71337 --- [siteclone] [pool-5-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+get page: https://easencia.com/contact.html
+2025-08-12T11:54:42.729+08:00  INFO 71337 --- [siteclone] [      Thread-12] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:54:42.729+08:00  INFO 71337 --- [siteclone] [      Thread-12] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:54:42.756+08:00  INFO 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css (大小: 146 字节)
+2025-08-12T11:54:42.756+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T11:54:42.756+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:54:42.756+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:54:42.834+08:00  INFO 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js (大小: 146 字节)
+2025-08-12T11:54:42.834+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T11:54:42.834+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:54:42.834+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T11:54:42.834+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:54:42.862+08:00  INFO 71337 --- [siteclone] [      Thread-13] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:54:42.862+08:00  INFO 71337 --- [siteclone] [      Thread-13] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:54:42.897+08:00  INFO 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg (大小: 146 字节)
+2025-08-12T11:54:42.898+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T11:54:42.963+08:00  INFO 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html (大小: 12074 字节)
+2025-08-12T11:54:42.963+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T11:54:42.964+08:00  INFO 71337 --- [siteclone] [pool-5-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+get page: https://easencia.com/en/index.html
+2025-08-12T11:54:43.686+08:00  INFO 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/index.html
+2025-08-12T11:54:43.687+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T11:54:43.687+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/index.html
+2025-08-12T11:54:43.687+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T11:54:43.687+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:54:43.689+08:00  INFO 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/contact.html
+2025-08-12T11:54:43.689+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:54:43.689+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:54:43.689+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:54:43.689+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/contact.html
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:54:43.690+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:54:43.691+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T11:54:43.692+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:54:43.692+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js
+2025-08-12T11:54:43.692+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T11:54:43.692+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:54:43.692+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T11:54:43.692+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg
+2025-08-12T11:54:43.692+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T11:54:43.692+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T11:54:43.692+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:54:43.692+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> en/index.html
+2025-08-12T11:54:43.693+08:00  INFO 71337 --- [siteclone] [pool-5-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+2025-08-12T11:54:43.693+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+get page: https://easencia.com/index.html
+2025-08-12T11:54:43.693+08:00 DEBUG 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T11:54:43.694+08:00  INFO 71337 --- [siteclone] [pool-5-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+get page: https://easencia.com/en/contact.html
+2025-08-12T11:54:43.797+08:00  INFO 71337 --- [siteclone] [      Thread-15] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:54:43.798+08:00  INFO 71337 --- [siteclone] [      Thread-14] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:54:43.798+08:00  INFO 71337 --- [siteclone] [      Thread-15] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:54:43.798+08:00  INFO 71337 --- [siteclone] [      Thread-14] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:54:44.698+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-7] us.codecraft.webmagic.Spider             : Spider easencia.com closed! 5 pages downloaded.
+2025-08-12T11:54:44.698+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-7] c.j.a.s.service.SiteCloneService         : Clone task completed: c18f20aa-054b-428d-aa98-906de1da264a
+2025-08-12T11:55:19.842+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-2] us.codecraft.webmagic.Spider             : Spider easencia.com started!
+2025-08-12T11:55:19.948+08:00  INFO 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com
+2025-08-12T11:55:19.949+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:55:19.949+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/contact.html
+2025-08-12T11:55:19.949+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/index.html
+2025-08-12T11:55:19.950+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:55:20.054+08:00  INFO 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css (大小: 21161 字节)
+2025-08-12T11:55:20.054+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:55:20.054+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:55:20.054+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:55:20.113+08:00  INFO 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js (大小: 6534 字节)
+2025-08-12T11:55:20.114+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:55:20.160+08:00  INFO 71337 --- [siteclone] [      Thread-16] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:55:20.160+08:00  INFO 71337 --- [siteclone] [      Thread-16] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:55:20.169+08:00  INFO 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg (大小: 433 字节)
+2025-08-12T11:55:20.169+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:55:20.169+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:55:20.169+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:55:20.169+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:55:20.243+08:00  INFO 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html (大小: 14409 字节)
+2025-08-12T11:55:20.243+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:55:20.308+08:00  INFO 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html (大小: 9562 字节)
+2025-08-12T11:55:20.309+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:20.309+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:20.309+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:20.309+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:20.309+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:20.309+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:20.309+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:20.309+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:20.309+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:20.310+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:20.310+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:20.310+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:20.310+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:20.310+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:20.310+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:20.310+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:20.310+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:20.312+08:00  INFO 71337 --- [siteclone] [pool-6-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+get page: https://easencia.com
+2025-08-12T11:55:21.416+08:00  INFO 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/contact.html
+2025-08-12T11:55:21.418+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T11:55:21.418+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/index.html
+2025-08-12T11:55:21.418+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T11:55:21.418+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:55:21.421+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:55:21.421+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:55:21.421+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:55:21.421+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:55:21.422+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:55:21.422+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T11:55:21.422+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:55:21.422+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:55:21.422+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:55:21.422+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:55:21.422+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> index.html
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:21.423+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:21.424+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:21.424+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:21.424+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:21.424+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:21.424+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:21.424+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:21.424+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:21.424+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:21.424+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:21.424+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:21.425+08:00  INFO 71337 --- [siteclone] [pool-6-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+get page: https://easencia.com/contact.html
+2025-08-12T11:55:21.429+08:00  INFO 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/index.html
+2025-08-12T11:55:21.429+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:55:21.429+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:55:21.429+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/contact.html
+2025-08-12T11:55:21.431+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:55:21.527+08:00  INFO 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css (大小: 146 字节)
+2025-08-12T11:55:21.528+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T11:55:21.528+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:55:21.528+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:55:21.528+08:00  INFO 71337 --- [siteclone] [      Thread-17] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:55:21.528+08:00  INFO 71337 --- [siteclone] [      Thread-17] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:55:21.620+08:00  INFO 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js (大小: 146 字节)
+2025-08-12T11:55:21.620+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T11:55:21.621+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:55:21.621+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T11:55:21.621+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:55:21.631+08:00  INFO 71337 --- [siteclone] [      Thread-18] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:55:21.631+08:00  INFO 71337 --- [siteclone] [      Thread-18] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:55:21.704+08:00  INFO 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg (大小: 146 字节)
+2025-08-12T11:55:21.704+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T11:55:21.780+08:00  INFO 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html (大小: 12074 字节)
+2025-08-12T11:55:21.780+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T11:55:21.782+08:00  INFO 71337 --- [siteclone] [pool-6-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+get page: https://easencia.com/en/index.html
+2025-08-12T11:55:22.505+08:00  INFO 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/index.html
+2025-08-12T11:55:22.507+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T11:55:22.507+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/index.html
+2025-08-12T11:55:22.507+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T11:55:22.507+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:55:22.509+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:55:22.509+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:55:22.510+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:55:22.510+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:55:22.510+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:55:22.510+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T11:55:22.510+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:55:22.510+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:55:22.510+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:55:22.510+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:55:22.510+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:55:22.510+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:22.511+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:55:22.513+08:00  INFO 71337 --- [siteclone] [pool-6-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+get page: https://easencia.com/index.html
+2025-08-12T11:55:22.523+08:00  INFO 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/contact.html
+2025-08-12T11:55:22.524+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:55:22.524+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:55:22.524+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/contact.html
+2025-08-12T11:55:22.525+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:55:22.525+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:55:22.525+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> en/index.html
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+2025-08-12T11:55:22.526+08:00 DEBUG 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T11:55:22.528+08:00  INFO 71337 --- [siteclone] [pool-6-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+get page: https://easencia.com/en/contact.html
+2025-08-12T11:55:22.616+08:00  INFO 71337 --- [siteclone] [      Thread-19] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:55:22.617+08:00  INFO 71337 --- [siteclone] [      Thread-19] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:55:22.632+08:00  INFO 71337 --- [siteclone] [      Thread-20] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:55:22.632+08:00  INFO 71337 --- [siteclone] [      Thread-20] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:55:23.532+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-2] us.codecraft.webmagic.Spider             : Spider easencia.com closed! 5 pages downloaded.
+2025-08-12T11:55:23.532+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-2] c.j.a.s.service.SiteCloneService         : Clone task completed: b757c9d3-efd8-4509-9fb3-281f40868b77
+2025-08-12T11:57:20.419+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-4] us.codecraft.webmagic.Spider             : Spider easencia.com started!
+2025-08-12T11:57:20.590+08:00  INFO 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/
+2025-08-12T11:57:20.592+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:57:20.592+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/contact.html
+2025-08-12T11:57:20.593+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/index.html
+2025-08-12T11:57:20.594+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:57:20.727+08:00  INFO 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css (大小: 21161 字节)
+2025-08-12T11:57:20.728+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:57:20.728+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:57:20.729+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:57:20.796+08:00  INFO 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js (大小: 6534 字节)
+2025-08-12T11:57:20.797+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:57:20.832+08:00  INFO 71337 --- [siteclone] [      Thread-21] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:57:20.832+08:00  INFO 71337 --- [siteclone] [      Thread-21] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:57:20.866+08:00  INFO 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg (大小: 433 字节)
+2025-08-12T11:57:20.867+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:57:20.867+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:57:20.867+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:57:20.867+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:57:20.951+08:00  INFO 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html (大小: 14409 字节)
+2025-08-12T11:57:20.951+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:57:21.030+08:00  INFO 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html (大小: 9562 字节)
+2025-08-12T11:57:21.030+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:21.031+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:21.033+08:00  INFO 71337 --- [siteclone] [pool-7-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+get page: https://easencia.com/
+2025-08-12T11:57:22.125+08:00  INFO 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/index.html
+2025-08-12T11:57:22.128+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:57:22.128+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:57:22.128+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/contact.html
+2025-08-12T11:57:22.130+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:57:22.163+08:00  INFO 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/contact.html
+2025-08-12T11:57:22.165+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T11:57:22.165+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/index.html
+2025-08-12T11:57:22.165+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T11:57:22.165+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:57:22.167+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:57:22.167+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:57:22.167+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:57:22.167+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:57:22.167+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:57:22.167+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T11:57:22.167+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:57:22.167+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:57:22.167+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:57:22.167+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:57:22.167+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:57:22.168+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T11:57:22.168+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+2025-08-12T11:57:22.168+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> index.html
+2025-08-12T11:57:22.168+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:22.169+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:22.171+08:00  INFO 71337 --- [siteclone] [pool-7-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+get page: https://easencia.com/contact.html
+2025-08-12T11:57:22.241+08:00  INFO 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css (大小: 146 字节)
+2025-08-12T11:57:22.242+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T11:57:22.242+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:57:22.242+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:57:22.269+08:00  INFO 71337 --- [siteclone] [      Thread-22] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:57:22.269+08:00  INFO 71337 --- [siteclone] [      Thread-22] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:57:22.340+08:00  INFO 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js (大小: 146 字节)
+2025-08-12T11:57:22.340+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T11:57:22.340+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:57:22.340+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T11:57:22.340+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:57:22.343+08:00  INFO 71337 --- [siteclone] [      Thread-23] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:57:22.343+08:00  INFO 71337 --- [siteclone] [      Thread-23] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:57:22.481+08:00  INFO 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg (大小: 146 字节)
+2025-08-12T11:57:22.481+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T11:57:22.547+08:00  INFO 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.utils.WebResourceDownloader      : 成功下载文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html (大小: 12074 字节)
+2025-08-12T11:57:22.548+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T11:57:22.549+08:00  INFO 71337 --- [siteclone] [pool-7-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+get page: https://easencia.com/en/index.html
+2025-08-12T11:57:23.254+08:00  INFO 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/contact.html
+2025-08-12T11:57:23.254+08:00  INFO 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/index.html
+2025-08-12T11:57:23.257+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T11:57:23.257+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:57:23.257+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/contact.html
+2025-08-12T11:57:23.257+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T11:57:23.257+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/index.html
+2025-08-12T11:57:23.257+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T11:57:23.257+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T11:57:23.259+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:57:23.259+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T11:57:23.259+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:57:23.259+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:57:23.259+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:57:23.259+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T11:57:23.259+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg
+2025-08-12T11:57:23.260+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> en/index.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:23.261+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:23.262+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:23.262+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:23.262+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:23.262+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:23.262+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:23.262+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:23.262+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T11:57:23.262+08:00 DEBUG 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T11:57:23.263+08:00  INFO 71337 --- [siteclone] [pool-7-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+get page: https://easencia.com/en/contact.html
+2025-08-12T11:57:23.263+08:00  INFO 71337 --- [siteclone] [pool-7-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+get page: https://easencia.com/index.html
+2025-08-12T11:57:23.364+08:00  INFO 71337 --- [siteclone] [      Thread-24] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:57:23.364+08:00  INFO 71337 --- [siteclone] [      Thread-25] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:57:23.364+08:00  INFO 71337 --- [siteclone] [      Thread-24] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T11:57:23.364+08:00  INFO 71337 --- [siteclone] [      Thread-25] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T11:57:24.268+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-4] us.codecraft.webmagic.Spider             : Spider easencia.com closed! 5 pages downloaded.
+2025-08-12T11:57:24.268+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-4] c.j.a.s.service.SiteCloneService         : Clone task completed: 417ed582-c8ab-47a7-b823-0e241825355d
+2025-08-12T12:02:54.662+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-1] us.codecraft.webmagic.Spider             : Spider easencia.com started!
+2025-08-12T12:02:54.834+08:00  INFO 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/
+2025-08-12T12:02:54.837+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T12:02:54.837+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/contact.html
+2025-08-12T12:02:54.837+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/index.html
+2025-08-12T12:02:54.840+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T12:02:54.840+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T12:02:54.841+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T12:02:54.841+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T12:02:54.841+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T12:02:54.841+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T12:02:54.841+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T12:02:54.841+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T12:02:54.841+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T12:02:54.841+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T12:02:54.841+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T12:02:54.841+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T12:02:54.842+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T12:02:54.842+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T12:02:54.842+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:54.842+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:54.842+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:54.842+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:54.842+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:54.842+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:54.842+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:54.842+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:54.843+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:54.843+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:54.843+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:54.843+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:54.843+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:54.843+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:54.843+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:54.843+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:54.843+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:54.843+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:54.844+08:00  INFO 71337 --- [siteclone] [pool-8-thread-1] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+get page: https://easencia.com/
+2025-08-12T12:02:54.947+08:00  INFO 71337 --- [siteclone] [      Thread-26] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T12:02:54.947+08:00  INFO 71337 --- [siteclone] [      Thread-26] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T12:02:55.922+08:00  INFO 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/index.html
+2025-08-12T12:02:55.925+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T12:02:55.925+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T12:02:55.925+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/en/contact.html
+2025-08-12T12:02:55.926+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T12:02:55.927+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T12:02:55.927+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T12:02:55.927+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T12:02:55.927+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T12:02:55.927+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js
+2025-08-12T12:02:55.927+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T12:02:55.928+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T12:02:55.928+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T12:02:55.928+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T12:02:55.928+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg
+2025-08-12T12:02:55.928+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T12:02:55.928+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+2025-08-12T12:02:55.928+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T12:02:55.930+08:00  INFO 71337 --- [siteclone] [pool-8-thread-3] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+get page: https://easencia.com/en/index.html
+2025-08-12T12:02:55.985+08:00  INFO 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/contact.html
+2025-08-12T12:02:55.987+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T12:02:55.987+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 添加新URL到队列: https://easencia.com/index.html
+2025-08-12T12:02:55.987+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T12:02:55.987+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T12:02:55.989+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T12:02:55.989+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T12:02:55.989+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T12:02:55.990+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T12:02:55.990+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T12:02:55.990+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T12:02:55.990+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T12:02:55.990+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T12:02:55.990+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T12:02:55.990+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T12:02:55.990+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T12:02:55.990+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T12:02:55.991+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+2025-08-12T12:02:55.991+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> index.html
+2025-08-12T12:02:55.991+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T12:02:55.991+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T12:02:55.991+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:55.991+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:55.991+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:55.991+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:55.992+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:55.994+08:00  INFO 71337 --- [siteclone] [pool-8-thread-2] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+get page: https://easencia.com/contact.html
+2025-08-12T12:02:56.031+08:00  INFO 71337 --- [siteclone] [      Thread-27] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T12:02:56.032+08:00  INFO 71337 --- [siteclone] [      Thread-27] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T12:02:56.096+08:00  INFO 71337 --- [siteclone] [      Thread-28] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T12:02:56.096+08:00  INFO 71337 --- [siteclone] [      Thread-28] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T12:02:57.002+08:00  INFO 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/en/contact.html
+2025-08-12T12:02:57.004+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 2 个唯一链接
+2025-08-12T12:02:57.005+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T12:02:57.005+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/contact.html
+2025-08-12T12:02:57.007+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T12:02:57.007+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T12:02:57.007+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T12:02:57.008+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> en/css/style.css
+2025-08-12T12:02:57.008+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T12:02:57.008+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/js/main.js
+2025-08-12T12:02:57.008+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> en/js/main.js
+2025-08-12T12:02:57.008+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T12:02:57.008+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /images/logo.svg -> images/logo.svg
+2025-08-12T12:02:57.008+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/images/logo.svg
+2025-08-12T12:02:57.009+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> en/images/logo.svg
+2025-08-12T12:02:57.009+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.98841899994!2d116.39127731533496!3d39.90775764681338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f0527e08a7583d%3A0x1a0d7c6e8d4f4b4e!2sGongchen%20Subdistrict%2C%20Beijing!5e0!3m2!1sen!2scn!4v1620000000000!5m2!1sen!2scn
+2025-08-12T12:02:57.009+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:57.009+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: index.html -> en/index.html
+2025-08-12T12:02:57.009+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+2025-08-12T12:02:57.009+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> en/contact.html
+2025-08-12T12:02:57.010+08:00  INFO 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 处理页面: https://easencia.com/index.html
+2025-08-12T12:02:57.011+08:00  INFO 71337 --- [siteclone] [pool-8-thread-4] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/contact.html
+get page: https://easencia.com/en/contact.html
+2025-08-12T12:02:57.011+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 去重后找到 3 个唯一链接
+2025-08-12T12:02:57.011+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/index.html
+2025-08-12T12:02:57.011+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/contact.html
+2025-08-12T12:02:57.011+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : URL已在缓存中，跳过: https://easencia.com/en/index.html
+2025-08-12T12:02:57.013+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+2025-08-12T12:02:57.013+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T12:02:57.013+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: css/style.css -> css/style.css
+2025-08-12T12:02:57.013+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+2025-08-12T12:02:57.013+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+2025-08-12T12:02:57.013+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/js/main.js
+2025-08-12T12:02:57.013+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: js/main.js -> js/main.js
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保留外部资源原始URL: https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/images/logo.svg
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: images/logo.svg -> images/logo.svg
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/contact.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: contact.html -> contact.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:57.014+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:57.015+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:57.015+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:57.015+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:57.015+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:57.015+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.utils.WebResourceDownloader      : 文件已存在，跳过: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/index.html
+2025-08-12T12:02:57.015+08:00 DEBUG 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 下载并更新当前域名资源: /en/index.html -> en/index.html
+2025-08-12T12:02:57.016+08:00  INFO 71337 --- [siteclone] [pool-8-thread-5] c.j.a.s.p.WebsiteMirrorProcessor         : 保存HTML文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/index.html
+get page: https://easencia.com/index.html
+2025-08-12T12:02:57.113+08:00  INFO 71337 --- [siteclone] [      Thread-29] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T12:02:57.113+08:00  INFO 71337 --- [siteclone] [      Thread-29] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/en/css/style.css
+2025-08-12T12:02:57.115+08:00  INFO 71337 --- [siteclone] [      Thread-30] c.j.a.siteclone.utils.ResourceProcessor  : 成功处理CSS文件: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T12:02:57.115+08:00  INFO 71337 --- [siteclone] [      Thread-30] c.j.a.s.p.WebsiteMirrorProcessor         : 异步处理CSS文件完成: /Users/leoobai/aiseo-downloads/siteclone/easencia.com/css/style.css
+2025-08-12T12:02:58.020+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-1] us.codecraft.webmagic.Spider             : Spider easencia.com closed! 5 pages downloaded.
+2025-08-12T12:02:58.021+08:00  INFO 71337 --- [siteclone] [nio-8082-exec-1] c.j.a.s.service.SiteCloneService         : Clone task completed: faf41be1-34ad-4d08-a95e-8482d773a31b
+2025-08-12T12:05:17.361+08:00  INFO 71337 --- [siteclone] [ionShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-12T12:05:19.380+08:00  INFO 71337 --- [siteclone] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

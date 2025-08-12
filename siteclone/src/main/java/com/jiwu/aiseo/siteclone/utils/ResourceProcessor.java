@@ -81,9 +81,20 @@ public class ResourceProcessor {
                     // 获取绝对URL
                     String absUrl = getAbsoluteUrl(baseUrl, originalUrl);
                     
-                    // 保留原始URL，不下载资源
-                    matcher.appendReplacement(newCssContent, "url(" + absUrl + ")");
-                    log.debug("CSS中URL已替换为绝对URL: {} -> {}", originalUrl, absUrl);
+                    // 使用路径映射器获取本地路径
+                    WebsitePathMapper.PathMappingResult mapping = pathMapper.mapUrlToLocalPath(absUrl);
+                    
+                    // 下载资源并更新CSS中的URL
+                    if (downloader.downloadResource(absUrl, mapping.getLocalPath())) {
+                        // 计算从CSS文件到资源文件的相对路径
+                        String relativePath = calculateRelativePathFromCssFile(cssFilePath, mapping.getLocalPath());
+                        matcher.appendReplacement(newCssContent, "url(" + relativePath + ")");
+                        log.debug("CSS中URL已替换为本地路径: {} -> {}", originalUrl, relativePath);
+                    } else {
+                        // 下载失败，保留原始URL
+                        matcher.appendReplacement(newCssContent, "url(" + absUrl + ")");
+                        log.warn("无法下载CSS资源，保留原始URL: {}", originalUrl);
+                    }
                 } catch (Exception e) {
                     log.error("处理CSS中的URL失败: {}", originalUrl, e);
                     matcher.appendReplacement(newCssContent, "url(" + originalUrl + ")");
@@ -99,6 +110,31 @@ public class ResourceProcessor {
         } catch (Exception e) {
             log.error("处理CSS文件失败: {}", cssFilePath, e);
             return false;
+        }
+    }
+    
+    /**
+     * 计算从CSS文件到资源文件的相对路径
+     * 
+     * @param cssFilePath CSS文件路径
+     * @param resourcePath 资源文件路径
+     * @return 相对路径
+     */
+    private String calculateRelativePathFromCssFile(String cssFilePath, String resourcePath) {
+        try {
+            Path cssPath = Paths.get(cssFilePath).getParent();
+            Path resourceFile = Paths.get(resourcePath);
+            
+            if (cssPath == null) {
+                return resourceFile.getFileName().toString();
+            }
+            
+            Path relativePath = cssPath.relativize(resourceFile);
+            return relativePath.toString().replace('\\', '/');
+        } catch (Exception e) {
+            log.warn("计算相对路径失败: {} -> {}", cssFilePath, resourcePath, e);
+            // 回退到资源文件名
+            return Paths.get(resourcePath).getFileName().toString();
         }
     }
     

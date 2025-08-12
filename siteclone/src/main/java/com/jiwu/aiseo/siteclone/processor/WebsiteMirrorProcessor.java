@@ -106,8 +106,9 @@ public class WebsiteMirrorProcessor implements PageProcessor {
         logger.info("处理页面: {}", page.getUrl());
         // 提取页面中的所有链接，保留.html等后缀
         // 使用LinkedHashSet保持顺序同时去重
+        // 修改正则表达式以支持端口和多语言字符
         Set<String> uniqueLinks = new LinkedHashSet<>(
-            page.getHtml().links().regex("(https?://" + domain + "/[\\w\\-/\\.]+)").all()
+            page.getHtml().links().regex("(https?://" + domain + "(?::\\d+)?/[\\w\\-\\u0080-\\uFFFF/.]+)").all()
         );
         List<String> links = new ArrayList<>(uniqueLinks);
         logger.debug("去重后找到 {} 个唯一链接", links.size());
@@ -259,37 +260,39 @@ public class WebsiteMirrorProcessor implements PageProcessor {
                         logger.info("资源被重新定位到安全位置: {} -> {}", absUrl, resourceMapping.getRelativePath());
                     }
 
-                    // 如果配置为保留原始URL，则不下载资源
-                    if (preserveOriginalUrls) {
-                        // 对于CSS、JS和图片资源，使用API路径
-                        if (element.tagName().equals("link") && attrName.equals("href") && element.attr("rel").equals("stylesheet")) {
-                            // 处理CSS文件
-                            String apiPath = "/api/files/" + domain + "/css/";
-                            String fileName = absUrl.substring(absUrl.lastIndexOf('/') + 1);
-                            element.attr(attrName, apiPath + fileName);
-                            logger.debug("转换为API路径: {} -> {}", originalUrl, apiPath + fileName);
-                        } else if (element.tagName().equals("script") && attrName.equals("src")) {
-                            // 处理JS文件
-                            String apiPath = "/api/files/" + domain + "/js/";
-                            String fileName = absUrl.substring(absUrl.lastIndexOf('/') + 1);
-                            element.attr(attrName, apiPath + fileName);
-                            logger.debug("转换为API路径: {} -> {}", originalUrl, apiPath + fileName);
-                        } else if (element.tagName().equals("img") && attrName.equals("src")) {
-                            // 处理图片文件
-                            String apiPath = "/api/files/" + domain + "/images/";
-                            String fileName = absUrl.substring(absUrl.lastIndexOf('/') + 1);
-                            element.attr(attrName, apiPath + fileName);
-                            logger.debug("转换为API路径: {} -> {}", originalUrl, apiPath + fileName);
+                    // 检查是否为当前域名资源
+                    boolean isCurrentDomainResource = false;
+                    try {
+                        URI resourceUri = new URI(absUrl);
+                        String resourceDomain = resourceUri.getHost();
+                        isCurrentDomainResource = domain.equals(resourceDomain);
+                    } catch (Exception e) {
+                        logger.warn("解析资源域名失败: {}", absUrl);
+                    }
+
+                    // 处理逻辑：当前域名资源下载，外部资源保留原始URL
+                    if (isCurrentDomainResource) {
+                        // 下载当前域名资源并更新链接
+                        if (resourceDownloader.downloadResource(absUrl, resourceMapping.getLocalPath())) {
+                            // 如果是CSS文件，下载后处理其中的URL引用
+                            if (element.tagName().equals("link") && attrName.equals("href") && element.attr("rel").equals("stylesheet")) {
+                                // 异步处理CSS文件中的URL引用，避免阻塞主流程
+                                processCssFileAsync(resourceMapping.getLocalPath(), baseUrl);
+                            }
+                            
+                            // 计算从当前页面到资源的正确相对路径
+                            String correctRelativePath = calculateCorrectRelativePath(currentPagePath, resourceMapping.getLocalPath());
+                            element.attr(attrName, correctRelativePath);
+                            logger.info("下载并更新当前域名资源: {} -> {} (从 {} 到 {})", originalUrl, correctRelativePath, currentPagePath, resourceMapping.getLocalPath());
                         } else {
-                            // 保留原始URL
+                            // 下载失败，保留原始URL
                             element.attr(attrName, absUrl);
-                            logger.debug("保留原始URL: {}", absUrl);
+                            logger.warn("下载当前域名资源失败，保留原始URL: {}", originalUrl);
                         }
                     } else {
-                        // 下载资源并更新链接
-                        resourceDownloader.downloadResource(absUrl, resourceMapping.getLocalPath());
-                        element.attr(attrName, resourceMapping.getRelativePath());
-                        logger.debug("更新链接: {} -> {}", originalUrl, resourceMapping.getRelativePath());
+                        // 外部资源保留原始URL
+                        element.attr(attrName, absUrl);
+                        logger.debug("保留外部资源原始URL: {}", absUrl);
                     }
                 } catch (Exception e) {
                     logger.error("处理资源时发生意外错误: {}={}, 错误: {}", 
@@ -371,6 +374,62 @@ public class WebsiteMirrorProcessor implements PageProcessor {
             logger.error("URL解析失败: base={}, resource={}", baseUrl, resourceUrl, e);
             return resourceUrl;
         }
+    }
+
+    /**
+     * 计算从当前页面到资源的正确相对路径
+     * 
+     * @param currentPagePath 当前页面路径
+     * @param resourcePath 资源路径
+     * @return 正确的相对路径
+     */
+    private String calculateCorrectRelativePath(String currentPagePath, String resourcePath) {
+        logger.info("计算相对路径: {} -> {}", currentPagePath, resourcePath);
+        try {
+            Path currentFile = Paths.get(currentPagePath);
+            Path resourceFile = Paths.get(resourcePath);
+            
+            // 获取当前文件的目录
+            Path currentDir = currentFile.getParent();
+            logger.info("当前文件目录: {}", currentDir);
+            
+            if (currentDir == null) {
+                String result = resourceFile.getFileName().toString();
+                logger.info("结果(文件名): {}", result);
+                return result;
+            }
+            
+            // 计算相对路径
+            Path relativePath = currentDir.relativize(resourceFile);
+            String result = relativePath.toString().replace('\\', '/');
+            logger.info("计算出的相对路径: {}", result);
+            return result;
+        } catch (Exception e) {
+            logger.warn("计算相对路径失败: {} -> {}", currentPagePath, resourcePath, e);
+            // 回退到使用路径映射器的相对路径
+            String fallback = pathMapper.calculateRelativePath(currentPagePath, resourcePath);
+            logger.info("回退路径映射器结果: {}", fallback);
+            return fallback;
+        }
+    }
+
+    /**
+     * 异步处理CSS文件中的URL引用
+     * 
+     * @param cssFilePath CSS文件路径
+     * @param baseUrl 基础URL
+     */
+    private void processCssFileAsync(String cssFilePath, String baseUrl) {
+        new Thread(() -> {
+            try {
+                // 等待一小段时间确保文件写入完成
+                Thread.sleep(100);
+                resourceProcessor.processCssFile(cssFilePath, baseUrl);
+                logger.info("异步处理CSS文件完成: {}", cssFilePath);
+            } catch (Exception e) {
+                logger.error("异步处理CSS文件失败: {}", cssFilePath, e);
+            }
+        }).start();
     }
 
     @Override
