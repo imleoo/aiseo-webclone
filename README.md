@@ -63,16 +63,47 @@ mvn spring-boot:run
 
 The application will be available at `http://localhost:8080`
 
-## 📦 Building and Deployment
+## 📂 Project Structure
 
-### Build
-```bash
-mvn clean package
 ```
-
-### Run
-```bash
-java -jar siteclone/target/siteclone-*.jar
+aiseo/
+├── .gitignore - Git version control ignore rules
+├── pom.xml - Parent project POM file
+└── siteclone/ - Site clone module
+    ├── pom.xml - Module POM file
+    ├── src/
+    │   ├── main/
+    │   │   ├── java/
+    │   │   │   ├── com/jiwu/aiseo/siteclone/
+    │   │   │   │   ├── SiteCloneApplication.java - Spring Boot main application class
+    │   │   │   │   ├── config/
+    │   │   │   │   │   └── AsyncConfig.java - Async task configuration
+    │   │   │   │   ├── controller/
+    │   │   │   │   │   ├── FileController.java - File operation controller
+    │   │   │   │   │   └── SiteCloneController.java - Site clone controller
+    │   │   │   │   ├── downloader/
+    │   │   │   │   │   └── CustomHttpClientDownloader.java - Custom HTTP downloader
+    │   │   │   │   ├── dto/
+    │   │   │   │   │   ├── CloneRequest.java - Clone request DTO
+    │   │   │   │   │   └── CloneResponse.java - Clone response DTO
+    │   │   │   │   ├── exception/
+    │   │   │   │   │   └── GlobalExceptionHandler.java - Global exception handler
+    │   │   │   │   ├── model/
+    │   │   │   │   │   ├── CloneTask.java - Clone task model
+    │   │   │   │   │   └── CloneTaskStatus.java - Clone task status enum
+    │   │   │   │   ├── processor/
+    │   │   │   │   │   └── WebsiteMirrorProcessor.java - Website mirror processor
+    │   │   │   │   └── service/
+    │   │   │   │       ├── FileService.java - File service
+    │   │   │   │       └── SiteCloneService.java - Site clone service
+    │   │   └── resources/
+    │   │       ├── application.yml - Application configuration file
+    │   │       └── static/
+    │   │           ├── favicon.ico - Website icon
+    │   │           ├── index.html - Homepage HTML
+    │   │           └── js/
+    │   │               └── app.js - Frontend JavaScript
+    └── target/ - Build output directory
 ```
 
 ## 🔧 API Usage
